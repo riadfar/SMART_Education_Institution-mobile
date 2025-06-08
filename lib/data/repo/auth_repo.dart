@@ -10,10 +10,18 @@ class AuthRepo {
 
   AuthRepo({required this.api});
 
-  Future<String> studentRegister({required String phoneNumber}) async {
+  Future<String> studentRegister({
+    required String email,
+    required String password,
+    required String confirmPassword,
+  }) async {
     try {
       final response = await api.studentRegister(
-        data: {"phone_number": phoneNumber},
+        data: {
+          "email": email,
+          "password": password,
+          "confirm_password": confirmPassword,
+        },
       );
       final String status = response['status'];
       return status;
@@ -23,11 +31,25 @@ class AuthRepo {
     }
   }
 
-  Future<String> resendVerificationCode({required String phoneNumber}) async {
+  Future<String> studentLogin({
+    required String email,
+    required String password,
+  }) async {
     try {
-      final response = await api.resendVerificationCode(
-        data: {"phone_number": phoneNumber},
+      final response = await api.studentRegister(
+        data: {"email": email, "password": password},
       );
+      final String status = response['status'];
+      return status;
+    } catch (e) {
+      print('error in repo :${e.toString()}');
+      rethrow;
+    }
+  }
+
+  Future<String> resendVerificationCode({required String email}) async {
+    try {
+      final response = await api.resendVerificationCode(data: {"email": email});
       final String status = response['status'];
       return status;
     } catch (e) {
@@ -42,15 +64,12 @@ class AuthRepo {
   }) async {
     try {
       final response = await api.studentVerify(
-        data: {
-          "email": email,
-          "verification_code": verificationCode,
-        },
+        data: {"email": email, "verification_code": verificationCode},
       );
       final userData = response['data'];
       final User user = User.fromMap(userData);
       // print(
-      //   "phone number:${user.email}\nuser_id : ${user.userId}\nrequireStudentData : ${user.requireStudentData}\n token : ${userData["token"]}",
+      //   "phone number:${user.email}\n user_id : ${user.userId}\n requireStudentData : ${user.requireStudentData}\n token : ${userData["token"]}",
       // );
       SecureStorage.storeToken(userData['token']?.toString() ?? "");
 
@@ -66,7 +85,7 @@ class AuthRepo {
     required String lastName,
     required String phoneNumber,
     required String gender,
-
+    int? age,
   }) async {
     try {
       final response = await api.fillStudentData(
@@ -74,7 +93,9 @@ class AuthRepo {
           "first_name": firstName,
           "last_name": lastName,
           "gender": gender,
-          "phone_number" : phoneNumber
+          "phone_number": phoneNumber,
+          "age" : age,
+          //add the age if it exists
         },
       );
       final Student student = Student.fromMap(response['data']);
@@ -121,6 +142,7 @@ class AuthRepo {
           "last_name": lastName,
           "gender": gender,
           "age": age,
+          "image": image,
         },
         image: image,
       );

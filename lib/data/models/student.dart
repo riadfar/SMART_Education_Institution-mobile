@@ -5,7 +5,7 @@ class Student {
   final String lastName;
   final String phoneNumber;
   final String gender;
-  final String? age;
+  final int? age;
   final String? image;
 
   Student({
@@ -26,7 +26,7 @@ class Student {
     lastName: '',
     phoneNumber: '',
     gender: '',
-    age: '',
+    age: -1,
     image: '',
   );
 
@@ -51,7 +51,7 @@ class Student {
       lastName: map['last_name'] ?? '',
       phoneNumber: map['phone_number'] ?? '',
       gender: map['gender'] ?? '',
-      age: map['age'] ?? '',
+      age: map['age'] ?? -1,
       image: map['image'] ?? '',
     );
   }

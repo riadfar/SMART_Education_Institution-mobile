@@ -1,6 +1,7 @@
 class EndPoints {
   ///AUTH
   static final String register = '/register';
+  static final String login = '/login';
   static final String studentVerify = '/verify';
   static final String resendVerificationCode = '/resendVerificationCode';
   static final String logout = '/logout';

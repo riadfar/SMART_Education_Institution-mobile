@@ -6,11 +6,23 @@ import '../../utils/headers.dart';
 import '../../utils/secure_storage.dart';
 
 class AuthApi {
+
   Future<Map<String, dynamic>> studentRegister({
     required Map<String, dynamic> data, //phone
   }) async {
     final response = await RemoteApi.post(
       EndPoints.register,
+      headers: headers,
+      body: data,
+    );
+    return response.data;
+  }
+
+  Future<Map<String, dynamic>> studentLogin({
+    required Map<String, dynamic> data, //phone
+  }) async {
+    final response = await RemoteApi.post(
+      EndPoints.login,
       headers: headers,
       body: data,
     );
