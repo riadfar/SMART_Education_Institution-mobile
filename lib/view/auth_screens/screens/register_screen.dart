@@ -20,6 +20,7 @@ class RegisterScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 LogoComponent(),
                 Center(
@@ -34,52 +35,6 @@ class RegisterScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 25),
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: DefaultText(
-                    text: 'First Name',
-                    color: defaultColor,
-                    size: 16,
-                  ),
-                ),
-                CustomTextFormFiled(
-                  controller: firstNameController,
-                  type: TextInputType.name,
-                  prefix: Icons.person_2_outlined,
-                  radius: 20,
-                  borderColor: defaultColor,
-                  iconColor: secondaryColor,
-                  validate: (String? value) {
-                    if (value!.isEmpty) {
-                      return "Sorry ! , First Name can't be empty, Enter your First Name ";
-                    } else {}
-                  },
-                ),
-                SizedBox(height: 15),
-
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: DefaultText(
-                    text: 'Last Name',
-                    color: defaultColor,
-                    size: 16,
-                  ),
-                ),
-                CustomTextFormFiled(
-                  controller: lastNameController,
-                  type: TextInputType.name,
-                  prefix: Icons.person_2_outlined,
-                  radius: 20,
-                  borderColor: defaultColor,
-                  iconColor: secondaryColor,
-                  validate: (String? value) {
-                    if (value!.isEmpty) {
-                      return "Sorry ! , Last Name can't be empty, Enter your Last Name ";
-                    } else {}
-                  },
-                ),
-
-                SizedBox(height: 15),
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: DefaultText(
@@ -101,7 +56,6 @@ class RegisterScreen extends StatelessWidget {
                     } else {}
                   },
                 ),
-
                 SizedBox(height: 15),
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0),
@@ -116,8 +70,6 @@ class RegisterScreen extends StatelessWidget {
                   type: TextInputType.visiblePassword,
                   prefix: Icons.lock_outlined,
                   isPassword: true,
-                  suffix: Icons.visibility_off_outlined,
-                  suffixPressed: () {},
                   radius: 20,
                   borderColor: defaultColor,
                   iconColor: secondaryColor,
@@ -127,7 +79,29 @@ class RegisterScreen extends StatelessWidget {
                     } else {}
                   },
                 ),
-
+                SizedBox(height: 15),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: DefaultText(
+                    text: 'Confirm Password',
+                    color: defaultColor,
+                    size: 16,
+                  ),
+                ),
+                CustomTextFormFiled(
+                  controller: passwordController,
+                  type: TextInputType.visiblePassword,
+                  prefix: Icons.lock_outlined,
+                  isPassword: true,
+                  radius: 20,
+                  borderColor: defaultColor,
+                  iconColor: secondaryColor,
+                  validate: (String? value) {
+                    if (value!.isEmpty) {
+                      return "Sorry ! , Password is too short ";
+                    } else {}
+                  },
+                ),
                 SizedBox(height: 30),
                 DefaultButton(
                   text: 'sign up',

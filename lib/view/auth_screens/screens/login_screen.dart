@@ -18,6 +18,7 @@ class LoginScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 LogoComponent(),
                 Center(
@@ -67,8 +68,6 @@ class LoginScreen extends StatelessWidget {
                   type: TextInputType.visiblePassword,
                   prefix: Icons.lock_outlined,
                   isPassword: true,
-                  suffix: Icons.visibility_off_outlined,
-                  suffixPressed: () {},
                   radius: 20,
                   borderColor: defaultColor,
                   iconColor: secondaryColor,

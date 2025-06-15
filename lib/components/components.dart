@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomTextFormFiled extends StatelessWidget {
+class CustomTextFormFiled extends StatefulWidget {
   final TextEditingController controller;
   final double radius;
   final dynamic borderColor;
@@ -13,8 +13,6 @@ class CustomTextFormFiled extends StatelessWidget {
   final dynamic onTap;
   final dynamic validate;
   final dynamic prefix;
-  final dynamic suffix;
-  final dynamic suffixPressed;
   final bool isPassword;
 
   const CustomTextFormFiled({
@@ -28,45 +26,68 @@ class CustomTextFormFiled extends StatelessWidget {
     this.onChange,
     required this.validate,
     this.onTap,
-    this.suffixPressed,
-    this.suffix,
     this.isPassword = false,
     this.borderColor,
     this.iconColor,
   });
 
   @override
+  _CustomTextFormFiledState createState() => _CustomTextFormFiledState();
+}
+
+class _CustomTextFormFiledState extends State<CustomTextFormFiled> {
+  bool _obscureText = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _obscureText = widget.isPassword;
+  }
+
+  void _togglePasswordVisibility() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controller,
-      keyboardType: type,
-      onFieldSubmitted: onSubmit,
-      onChanged: onChange,
-      onTap: onTap,
-      validator: validate,
-      obscureText: isPassword,
-      cursorColor: borderColor,
+      controller: widget.controller,
+      keyboardType: widget.type,
+      onFieldSubmitted: widget.onSubmit,
+      onChanged: widget.onChange,
+      onTap: widget.onTap,
+      validator: widget.validate,
+      obscureText: _obscureText,
+      cursorColor: widget.borderColor,
       decoration: InputDecoration(
-        suffixIcon: GestureDetector(onTap: suffixPressed, child: Icon(suffix)),
-        prefixIcon: Icon(prefix),
-        labelText: label,
-        prefixIconColor: iconColor,
-        // border: OutlineInputBorder(
-        //   borderSide: BorderSide(color: Colors.deepOrange ),
-        //   borderRadius: BorderRadius.all(Radius.circular(radius)),
-        // ),
+        suffixIcon: widget.isPassword
+            ? GestureDetector(
+          onTap: _togglePasswordVisibility,
+          child: Icon(
+            _obscureText
+                ? Icons.visibility_off_outlined
+                : Icons.visibility_outlined,
+          ),
+        )
+            : null,
+        prefixIcon: Icon(widget.prefix),
+        labelText: widget.label,
+        prefixIconColor: widget.iconColor,
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: borderColor),
-          borderRadius: BorderRadius.all(Radius.circular(radius)),
+          borderSide: BorderSide(color: widget.borderColor),
+          borderRadius: BorderRadius.all(Radius.circular(widget.radius)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: borderColor),
-          borderRadius: BorderRadius.all(Radius.circular(radius)),
+          borderSide: BorderSide(color: widget.borderColor),
+          borderRadius: BorderRadius.all(Radius.circular(widget.radius)),
         ),
       ),
     );
   }
 }
+
 
 class DefaultButton extends StatelessWidget {
   final double width;

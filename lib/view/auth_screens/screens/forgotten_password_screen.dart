@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import '../../../components/components.dart';
 import '../../../utils/constants.dart';
 
-
-var passwordController = TextEditingController();
+TextEditingController passwordController =  TextEditingController();
+TextEditingController confirmPasswordController =  TextEditingController();
 var formKey = GlobalKey<FormState>();
-class EnterPasswordScreen extends StatelessWidget {
-  const EnterPasswordScreen({super.key});
+class ForgottenPasswordScreen extends StatelessWidget {
+  const ForgottenPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,16 +19,7 @@ class EnterPasswordScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
-                child: SizedBox(
-                  height: 200,
-                  width: 350,
-                  child: Image.asset(
-                    'assets/images/SMART.png',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
+              LogoComponent(),
               Center(
                 child: DefaultText(
                   text: 'Forgot Your Password ? ',
@@ -40,15 +31,17 @@ class EnterPasswordScreen extends StatelessWidget {
               SizedBox(height: 35),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
-                child: DefaultText(text: 'Password', color: defaultColor, size: 16),
+                child: DefaultText(
+                  text: 'Password',
+                  color: defaultColor,
+                  size: 16,
+                ),
               ),
               CustomTextFormFiled(
                 controller: passwordController,
                 type: TextInputType.visiblePassword,
                 prefix: Icons.lock_outlined,
                 isPassword: true,
-                suffix: Icons.visibility_off_outlined,
-                suffixPressed: () {},
                 radius: 20,
                 borderColor: defaultColor,
                 iconColor: secondaryColor,
@@ -61,15 +54,17 @@ class EnterPasswordScreen extends StatelessWidget {
               SizedBox(height: 15),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
-                child: DefaultText(text: 'Confirm Password', color: defaultColor, size: 16),
+                child: DefaultText(
+                  text: 'Confirm Password',
+                  color: defaultColor,
+                  size: 16,
+                ),
               ),
               CustomTextFormFiled(
-                controller: passwordController,
+                controller: confirmPasswordController,
                 type: TextInputType.visiblePassword,
                 prefix: Icons.lock_outlined,
                 isPassword: true,
-                suffix: Icons.visibility_off_outlined,
-                suffixPressed: () {},
                 radius: 20,
                 borderColor: defaultColor,
                 iconColor: secondaryColor,
