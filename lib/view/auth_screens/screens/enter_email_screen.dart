@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../components/components.dart';
-import '../../utils/constants.dart';
+import '../../../components/components.dart';
+import '../../../utils/constants.dart';
+
 
 var emailController = TextEditingController();
 var formKey = GlobalKey<FormState>();
@@ -41,13 +42,13 @@ class EnterEmailScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 8.0),
                 child: DefaultText(text: 'Email', color: defaultColor, size: 16),
               ),
-              CostumTextFormFeild(
+              CustomTextFormFiled(
                 controller: emailController,
                 type: TextInputType.emailAddress,
                 prefix: Icons.email_outlined,
                 radius: 20,
-                bordercolor: defaultColor,
-                iconcolor: secondaryColor,
+                borderColor: defaultColor,
+                iconColor: secondaryColor,
                 validate: (String? value) {
                   if (value!.isEmpty) {
                     return "Sorry ! , Email can't be empty, Enter your email ";
@@ -55,7 +56,7 @@ class EnterEmailScreen extends StatelessWidget {
                 },
               ),
               SizedBox(height: 15),
-              Defaultbotton(
+              DefaultButton(
                 text: 'next',
                 onPress: () {},
                 width: double.infinity,

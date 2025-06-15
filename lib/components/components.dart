@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CostumTextFormFeild extends StatelessWidget {
+class CustomTextFormFiled extends StatelessWidget {
   final TextEditingController controller;
   final double radius;
-  final dynamic bordercolor;
-  final dynamic iconcolor;
+  final dynamic borderColor;
+  final dynamic iconColor;
 
   final TextInputType type;
   final dynamic label;
@@ -17,7 +17,7 @@ class CostumTextFormFeild extends StatelessWidget {
   final dynamic suffixPressed;
   final bool isPassword;
 
-  const CostumTextFormFeild({
+  const CustomTextFormFiled({
     super.key,
     required this.radius,
     this.label,
@@ -31,8 +31,8 @@ class CostumTextFormFeild extends StatelessWidget {
     this.suffixPressed,
     this.suffix,
     this.isPassword = false,
-    this.bordercolor,
-    this.iconcolor,
+    this.borderColor,
+    this.iconColor,
   });
 
   @override
@@ -45,22 +45,22 @@ class CostumTextFormFeild extends StatelessWidget {
       onTap: onTap,
       validator: validate,
       obscureText: isPassword,
-      cursorColor: bordercolor,
+      cursorColor: borderColor,
       decoration: InputDecoration(
         suffixIcon: GestureDetector(onTap: suffixPressed, child: Icon(suffix)),
         prefixIcon: Icon(prefix),
         labelText: label,
-        prefixIconColor: iconcolor,
+        prefixIconColor: iconColor,
         // border: OutlineInputBorder(
         //   borderSide: BorderSide(color: Colors.deepOrange ),
         //   borderRadius: BorderRadius.all(Radius.circular(radius)),
         // ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: bordercolor),
+          borderSide: BorderSide(color: borderColor),
           borderRadius: BorderRadius.all(Radius.circular(radius)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: bordercolor),
+          borderSide: BorderSide(color: borderColor),
           borderRadius: BorderRadius.all(Radius.circular(radius)),
         ),
       ),
@@ -68,14 +68,14 @@ class CostumTextFormFeild extends StatelessWidget {
   }
 }
 
-class Defaultbotton extends StatelessWidget {
+class DefaultButton extends StatelessWidget {
   final double width;
   final Color background;
   final String text;
   final double radius;
   final VoidCallback onPress;
 
-  const Defaultbotton({
+  const DefaultButton({
     super.key,
     required this.background,
     this.width = double.infinity,
@@ -131,14 +131,14 @@ class DefaultText extends StatelessWidget {
   }
 }
 
-class DefaultTextBotton extends StatelessWidget {
+class DefaultTextButton extends StatelessWidget {
   final String text;
   final Color color;
   final double size;
   final dynamic onPressed;
   final dynamic fontWeight;
 
-  const DefaultTextBotton({
+  const DefaultTextButton({
     super.key,
     required this.text,
     required this.color,
@@ -183,3 +183,22 @@ void navigateAndFinish(BuildContext context, Widget screen) =>
         },
       ),
     );
+
+class LogoComponent extends StatelessWidget {
+  const LogoComponent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: SizedBox(
+        height: 150,
+        width: 350,
+        child: Image.asset(
+          'assets/images/SMART.png',
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+}
+

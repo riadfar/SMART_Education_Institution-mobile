@@ -8,7 +8,7 @@ class User {
     required this.email,
     required this.requireStudentData,
   });
-
+  
   factory User.initial() =>
       User(userId: -1, email: '', requireStudentData: false);
 

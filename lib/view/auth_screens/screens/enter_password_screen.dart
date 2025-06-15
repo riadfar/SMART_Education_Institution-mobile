@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../components/components.dart';
-import '../../utils/constants.dart';
+import '../../../components/components.dart';
+import '../../../utils/constants.dart';
+
 
 var passwordController = TextEditingController();
 var formKey = GlobalKey<FormState>();
@@ -41,7 +42,7 @@ class EnterPasswordScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 8.0),
                 child: DefaultText(text: 'Password', color: defaultColor, size: 16),
               ),
-              CostumTextFormFeild(
+              CustomTextFormFiled(
                 controller: passwordController,
                 type: TextInputType.visiblePassword,
                 prefix: Icons.lock_outlined,
@@ -49,8 +50,8 @@ class EnterPasswordScreen extends StatelessWidget {
                 suffix: Icons.visibility_off_outlined,
                 suffixPressed: () {},
                 radius: 20,
-                bordercolor: defaultColor,
-                iconcolor: secondaryColor,
+                borderColor: defaultColor,
+                iconColor: secondaryColor,
                 validate: (String? value) {
                   if (value!.isEmpty) {
                     return "Sorry ! , Password is too short ";
@@ -62,7 +63,7 @@ class EnterPasswordScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 8.0),
                 child: DefaultText(text: 'Confirm Password', color: defaultColor, size: 16),
               ),
-              CostumTextFormFeild(
+              CustomTextFormFiled(
                 controller: passwordController,
                 type: TextInputType.visiblePassword,
                 prefix: Icons.lock_outlined,
@@ -70,8 +71,8 @@ class EnterPasswordScreen extends StatelessWidget {
                 suffix: Icons.visibility_off_outlined,
                 suffixPressed: () {},
                 radius: 20,
-                bordercolor: defaultColor,
-                iconcolor: secondaryColor,
+                borderColor: defaultColor,
+                iconColor: secondaryColor,
                 validate: (String? value) {
                   if (value!.isEmpty) {
                     return "Sorry ! , Password is too short ";
@@ -79,7 +80,7 @@ class EnterPasswordScreen extends StatelessWidget {
                 },
               ),
               SizedBox(height: 15),
-              Defaultbotton(
+              DefaultButton(
                 text: 'done',
                 onPress: () {},
                 width: double.infinity,
