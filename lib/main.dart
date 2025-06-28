@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_education_institution_mobile/view/auth_screens/screens/fill_student_data_screen.dart';
 import 'package:smart_education_institution_mobile/view/auth_screens/screens/forgotten_password_screen.dart';
 import 'package:smart_education_institution_mobile/view/auth_screens/screens/verification.dart';
 import 'package:smart_education_institution_mobile/view/auth_screens/screens/login_screen.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: RequestCodeScreen(),
+      home: FillStudentDataScreen(),
     );
   }
 }
