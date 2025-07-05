@@ -3,6 +3,7 @@ import 'package:flutter_holo_date_picker/date_picker.dart';
 import 'package:flutter_holo_date_picker/i18n/date_picker_i18n.dart';
 import 'package:flutter_radio_group/flutter_radio_group.dart';
 import 'package:intl/intl.dart';
+
 import '../../../components/components.dart';
 import '../../../utils/constants.dart';
 
@@ -11,8 +12,7 @@ var firstNameController = TextEditingController();
 var formKey = GlobalKey<FormState>();
 var radiokey = GlobalKey<FlutterRadioGroupState>();
 DateTime datePicked = DateTime.now();
-var selectDate='Birthday';
-
+var selectDate = 'Birthday';
 
 class FillStudentDataScreen extends StatelessWidget {
   const FillStudentDataScreen({super.key});
@@ -20,10 +20,10 @@ class FillStudentDataScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
+      body: SingleChildScrollView(
         child: Center(
-          child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -131,7 +131,7 @@ class FillStudentDataScreen extends StatelessWidget {
                       looping: false,
                       textColor: defaultColor,
                     ))!;
-                    selectDate= DateFormat('dd/MMM/yyyy').format(datePicked);
+                    selectDate = DateFormat('dd/MMM/yyyy').format(datePicked);
                     print(selectDate);
                   },
                   child: Container(
@@ -145,7 +145,7 @@ class FillStudentDataScreen extends StatelessWidget {
                       ),
                     ),
                     child: Align(
-                      alignment: Alignment.centerLeft ,
+                      alignment: Alignment.centerLeft,
                       child: DefaultText(
                         text: selectDate.toString(),
                         color: secondaryColor,

@@ -191,7 +191,7 @@ class DefaultTextButton extends StatelessWidget {
       onPressed: onPressed,
       style: ButtonStyle(
         padding: WidgetStatePropertyAll(EdgeInsets.all(0)),
-        alignment: Alignment.bottomLeft,
+
       ),
       child: Text(
         text,

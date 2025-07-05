@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
-import '../../../components/components.dart';
-import '../../../utils/constants.dart';
+import 'package:smart_education_institution_mobile/components/components.dart';
+import 'package:smart_education_institution_mobile/utils/constants.dart';
 
-var firstNameController = TextEditingController();
-var lastNameController = TextEditingController();
 var emailController = TextEditingController();
 var passwordController = TextEditingController();
 var formKey = GlobalKey<FormState>();
 
-class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
+      body: SingleChildScrollView(
         child: Center(
-          child: SingleChildScrollView(
-            child: Column(
+          child: Padding(
+          padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
+
+      child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -27,7 +26,7 @@ class RegisterScreen extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 15),
                     child: DefaultText(
-                      text: 'sign up'.toUpperCase(),
+                      text: 'sign in'.toUpperCase(),
                       color: defaultColor,
                       size: 30,
                       fontWeight: FontWeight.bold,
@@ -52,7 +51,7 @@ class RegisterScreen extends StatelessWidget {
                   iconColor: secondaryColor,
                   validate: (String? value) {
                     if (value!.isEmpty) {
-                      return "Sorry ! , Email can't be empty, Enter your Email ";
+                      return "Sorry ! , Email can't be empty, Enter your email ";
                     } else {}
                   },
                 ),
@@ -79,32 +78,18 @@ class RegisterScreen extends StatelessWidget {
                     } else {}
                   },
                 ),
-                SizedBox(height: 15),
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: DefaultText(
-                    text: 'Confirm Password',
-                    color: defaultColor,
-                    size: 16,
+                Align(
+                  alignment: Alignment.topRight,
+                  child: DefaultTextButton(
+                    text: 'Forgot password?',
+                    color: secondaryColor,
+                    size: 15,
+                    onPressed: () {},
                   ),
                 ),
-                CustomTextFormFiled(
-                  controller: passwordController,
-                  type: TextInputType.visiblePassword,
-                  prefix: Icons.lock_outlined,
-                  isPassword: true,
-                  radius: 20,
-                  borderColor: defaultColor,
-                  iconColor: secondaryColor,
-                  validate: (String? value) {
-                    if (value!.isEmpty) {
-                      return "Sorry ! , Password is too short ";
-                    } else {}
-                  },
-                ),
-                SizedBox(height: 30),
+                SizedBox(height: 10),
                 DefaultButton(
-                  text: 'sign up',
+                  text: 'login',
                   onPress: () {},
                   width: double.infinity,
                   background: defaultColor,
@@ -124,12 +109,12 @@ class RegisterScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       DefaultText(
-                        text: "Do you have an account?",
+                        text: "Don't have an account?",
                         color: defaultColor,
                         size: 13,
                       ),
                       DefaultTextButton(
-                        text: 'sign in'.toUpperCase(),
+                        text: 'sign up'.toUpperCase(),
                         color: secondaryColor,
                         size: 13,
                         onPressed: () {},

@@ -9,6 +9,7 @@ class CoursesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        titleSpacing: 1,
         backgroundColor: Colors.white10,
         surfaceTintColor: Colors.white10,
         title: DefaultIconButton(
@@ -31,44 +32,43 @@ class CoursesScreen extends StatelessWidget {
         actionsPadding: EdgeInsets.only(right: 10),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 12, right: 12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              DefaultText(
-                text: 'My Courses',
-                color: defaultColor,
-                size: 25,
-                fontWeight: FontWeight.bold,
-              ),
-              SizedBox(height: 5),
-              SizedBox(
-                height: 125,
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => buildMyCourseItems(),
-                  itemCount: 5,
-                  separatorBuilder: (BuildContext context, int index) =>
-                      SizedBox(width: 10),
-                ),
-              ),
-              DefaultText(
-                text: 'Courses',
-                color: defaultColor,
-                size: 25,
-                fontWeight: FontWeight.bold,
-              ),
-              ListView.separated(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) => buildCourseItems(),
-                separatorBuilder: (BuildContext context, int index) =>
-                    SizedBox(height: 5, width: double.infinity),
+        padding: EdgeInsets.symmetric(horizontal: 12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            DefaultText(
+              text: 'My Courses',
+              color: defaultColor,
+              size: 25,
+              fontWeight: FontWeight.bold,
+            ),
+            SizedBox(height: 5),
+            SizedBox(
+              height: 125,
+              child: ListView.separated(
+                padding: EdgeInsets.all(0),
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) => buildMyCourseItems(),
                 itemCount: 5,
+                separatorBuilder: (BuildContext context, int index) =>
+                    SizedBox(width: 10),
               ),
-            ],
-          ),
+            ),
+            DefaultText(
+              text: 'Courses',
+              color: defaultColor,
+              size: 25,
+              fontWeight: FontWeight.bold,
+            ),
+            ListView.separated(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) => buildCourseItems(),
+              separatorBuilder: (BuildContext context, int index) =>
+                  SizedBox(height: 5, width: double.infinity),
+              itemCount: 5,
+            ),
+          ],
         ),
       ),
     );
@@ -93,7 +93,7 @@ Widget buildCourseItems() {
             borderRadius: BorderRadius.all(Radius.circular(15)),
             image: DecorationImage(
               fit: BoxFit.fill,
-              image: AssetImage('assets/images/1.jpg'),
+               image: AssetImage("assets/images/1.jpg") ,
             ),
           ),
         ),
@@ -105,8 +105,8 @@ Widget buildCourseItems() {
           fontWeight: FontWeight.bold,
         ),
         Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             SizedBox(
               width: 315,
@@ -116,15 +116,18 @@ Widget buildCourseItems() {
                 text:
                     'Therefore, it is important to dedicate time for reading in our daily lives, whether through nTherefore, it is important to dedicate time for reading in our daily lives, whether through nTherefore, it is important to dedicate time for reading in our daily lives, whether through n',
                 color: Colors.black54,
-                size: 13,
+                size: 14,
               ),
             ),
-            DefaultTextButton(
-              text: 'Show More',
-              color: defaultColor,
-              size: 10,
-              onPressed: () {},
-              textDecoration: TextDecoration.underline,
+            SizedBox(
+              height: 20,
+              child: DefaultTextButton(
+                text: 'Show More',
+                color: defaultColor,
+                size: 10,
+                onPressed: () {},
+                textDecoration: TextDecoration.underline,
+              ),
             ),
           ],
         ),
