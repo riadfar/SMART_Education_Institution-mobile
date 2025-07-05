@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
-
 import '../../../components/components.dart';
 
 class VerificationScreen extends StatelessWidget {

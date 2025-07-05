@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_holo_date_picker/date_picker.dart';
-import 'package:flutter_holo_date_picker/date_picker_theme.dart';
-import 'package:flutter_holo_date_picker/i18n/date_picker_i18n.dart';
-import 'package:flutter_holo_date_picker/widget/date_picker_widget.dart';
-
-import '../utils/constants.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:smart_education_institution_mobile/utils/constants.dart';
 
 class CustomTextFormFiled extends StatefulWidget {
   final TextEditingController controller;
@@ -70,13 +66,13 @@ class _CustomTextFormFiledState extends State<CustomTextFormFiled> {
       decoration: InputDecoration(
         suffixIcon: widget.isPassword
             ? GestureDetector(
-          onTap: _togglePasswordVisibility,
-          child: Icon(
-            _obscureText
-                ? Icons.visibility_off_outlined
-                : Icons.visibility_outlined,
-          ),
-        )
+                onTap: _togglePasswordVisibility,
+                child: Icon(
+                  _obscureText
+                      ? Icons.visibility_off_outlined
+                      : Icons.visibility_outlined,
+                ),
+              )
             : null,
         prefixIcon: Icon(widget.prefix),
         labelText: widget.label,
@@ -94,11 +90,12 @@ class _CustomTextFormFiledState extends State<CustomTextFormFiled> {
   }
 }
 
-
 class DefaultButton extends StatelessWidget {
   final double width;
+  final double height;
   final Color background;
   final String text;
+  final double fontSize;
   final double radius;
   final VoidCallback onPress;
 
@@ -106,7 +103,9 @@ class DefaultButton extends StatelessWidget {
     super.key,
     required this.background,
     this.width = double.infinity,
+    this.height = 50.0,
     required this.text,
+    this.fontSize = 18,
     this.radius = 5.0,
     required this.onPress,
   });
@@ -115,7 +114,7 @@ class DefaultButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      height: 50.0,
+      height: height,
       decoration: BoxDecoration(
         color: background,
         borderRadius: BorderRadius.circular(radius),
@@ -127,7 +126,7 @@ class DefaultButton extends StatelessWidget {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white,
-            fontSize: 18,
+            fontSize: fontSize,
           ),
         ),
       ),
@@ -140,6 +139,8 @@ class DefaultText extends StatelessWidget {
   final Color color;
   final double size;
   final dynamic fontWeight;
+  final dynamic overflow;
+  final dynamic maxLines;
 
   const DefaultText({
     super.key,
@@ -147,12 +148,16 @@ class DefaultText extends StatelessWidget {
     required this.color,
     required this.size,
     this.fontWeight,
+    this.overflow,
+    this.maxLines,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
+      overflow: overflow,
+      maxLines: maxLines,
       style: TextStyle(color: color, fontSize: size, fontWeight: fontWeight),
     );
   }
@@ -164,6 +169,9 @@ class DefaultTextButton extends StatelessWidget {
   final double size;
   final dynamic onPressed;
   final dynamic fontWeight;
+  final dynamic textDecoration;
+  final dynamic overflow;
+  final dynamic maxLines;
 
   const DefaultTextButton({
     super.key,
@@ -172,18 +180,30 @@ class DefaultTextButton extends StatelessWidget {
     required this.size,
     required this.onPressed,
     this.fontWeight,
+    this.textDecoration,
+    this.overflow,
+    this.maxLines,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed:onPressed,
+      onPressed: onPressed,
+      style: ButtonStyle(
+        padding: WidgetStatePropertyAll(EdgeInsets.all(0)),
+        alignment: Alignment.bottomLeft,
+      ),
       child: Text(
         text,
+
+        overflow: overflow,
+        maxLines: maxLines,
         style: TextStyle(
           color: color,
           fontSize: size,
           fontWeight: fontWeight,
+          decoration: textDecoration,
+          decorationColor: defaultColor,
         ),
       ),
     );
@@ -220,12 +240,35 @@ class LogoComponent extends StatelessWidget {
       child: SizedBox(
         height: 150,
         width: 350,
-        child: Image.asset(
-          'assets/images/SMART.png',
-          fit: BoxFit.cover,
-        ),
+        child: Image.asset('assets/images/SMART.png', fit: BoxFit.cover),
       ),
     );
   }
 }
 
+class DefaultIconButton extends StatelessWidget {
+  final Function onPressed;
+  final Icon icon;
+  final double size;
+  final  Color color;
+
+  const DefaultIconButton({
+    super.key,
+    required this.onPressed,
+    required this.icon,
+    this.size=35,
+    required this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: onPressed(),
+      icon: icon,
+      style: ButtonStyle(
+        iconSize: WidgetStatePropertyAll(size),
+        iconColor: WidgetStatePropertyAll(color),
+      ),
+    );
+  }
+}
