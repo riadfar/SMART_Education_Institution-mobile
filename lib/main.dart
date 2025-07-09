@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smart_education_institution_mobile/view/screens/courses_screen.dart';
 import 'package:smart_education_institution_mobile/view/screens/login_screen.dart';
+import 'package:smart_education_institution_mobile/view/screens/profile_screen.dart';
+import 'package:smart_education_institution_mobile/view/screens/register_screen.dart';
 import 'package:smart_education_institution_mobile/view/screens/view_course_description_screen.dart';
 
 
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CoursesScreen(),
+      home: ProfileScreen(),
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
 
 class CustomTextFormFiled extends StatefulWidget {
@@ -7,7 +6,6 @@ class CustomTextFormFiled extends StatefulWidget {
   final double radius;
   final dynamic borderColor;
   final dynamic iconColor;
-
   final TextInputType type;
   final dynamic label;
   final dynamic onSubmit;
@@ -16,6 +14,10 @@ class CustomTextFormFiled extends StatefulWidget {
   final dynamic validate;
   final dynamic prefix;
   final bool isPassword;
+  final bool readOnly;
+  final bool border;
+  final  hintText;
+
 
   const CustomTextFormFiled({
     super.key,
@@ -23,14 +25,17 @@ class CustomTextFormFiled extends StatefulWidget {
     this.label,
     required this.controller,
     required this.type,
-    required this.prefix,
+    this.prefix,
     this.onSubmit,
     this.onChange,
-    required this.validate,
+    this.validate,
     this.onTap,
     this.isPassword = false,
     this.borderColor,
     this.iconColor,
+    this.readOnly=false,
+    this.border=true,
+    this.hintText,
   });
 
   @override
@@ -55,6 +60,7 @@ class _CustomTextFormFiledState extends State<CustomTextFormFiled> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      readOnly: widget.readOnly,
       controller: widget.controller,
       keyboardType: widget.type,
       onFieldSubmitted: widget.onSubmit,
@@ -64,6 +70,7 @@ class _CustomTextFormFiledState extends State<CustomTextFormFiled> {
       obscureText: _obscureText,
       cursorColor: widget.borderColor,
       decoration: InputDecoration(
+        hintText: widget.hintText,
         suffixIcon: widget.isPassword
             ? GestureDetector(
                 onTap: _togglePasswordVisibility,
@@ -77,14 +84,14 @@ class _CustomTextFormFiledState extends State<CustomTextFormFiled> {
         prefixIcon: Icon(widget.prefix),
         labelText: widget.label,
         prefixIconColor: widget.iconColor,
-        enabledBorder: OutlineInputBorder(
+        enabledBorder:widget.border? OutlineInputBorder(
           borderSide: BorderSide(color: widget.borderColor),
           borderRadius: BorderRadius.all(Radius.circular(widget.radius)),
-        ),
-        focusedBorder: OutlineInputBorder(
+        ):UnderlineInputBorder(borderSide: BorderSide(color: widget.borderColor),),
+        focusedBorder:widget.border? OutlineInputBorder(
           borderSide: BorderSide(color: widget.borderColor),
           borderRadius: BorderRadius.all(Radius.circular(widget.radius)),
-        ),
+        ):UnderlineInputBorder(borderSide: BorderSide(color: widget.borderColor),),
       ),
     );
   }
@@ -238,7 +245,7 @@ class LogoComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        height: 150,
+        height: 110,
         width: 350,
         child: Image.asset('assets/images/SMART.png', fit: BoxFit.cover),
       ),

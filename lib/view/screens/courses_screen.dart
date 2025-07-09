@@ -9,30 +9,26 @@ class CoursesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        titleSpacing: 1,
-        backgroundColor: Colors.white10,
-        surfaceTintColor: Colors.white10,
-        title: DefaultIconButton(
-          onPressed: () {},
-          icon: Icon(Icons.person_outline),
-          color: defaultColor,
-        ),
+        titleSpacing: 12,
+        toolbarHeight: 65,
+        backgroundColor: defaultColor,
+        title:DefaultText(text: 'Courses', color:Colors.white, size:25),
         actions: [
           DefaultIconButton(
             onPressed: () {},
             icon: Icon(Icons.notifications_none),
-            color: defaultColor,
+            color: Colors.white,
           ),
           DefaultIconButton(
             onPressed: () {},
             icon: Icon(Icons.search),
-            color: defaultColor,
+            color: Colors.white,
           ),
         ],
         actionsPadding: EdgeInsets.only(right: 10),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 12),
+        padding: EdgeInsets.symmetric(horizontal: 12,vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

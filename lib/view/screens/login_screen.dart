@@ -12,10 +12,10 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Center(
+      body: Center(
+        child: SingleChildScrollView(
           child: Padding(
-          padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
+          padding: const EdgeInsets.only(right: 20, left: 20,),
 
       child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

@@ -20,8 +20,8 @@ class FillStudentDataScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Center(
+      body: Center(
+        child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
             child: Column(
@@ -92,7 +92,7 @@ class FillStudentDataScreen extends StatelessWidget {
                 ),
                 CustomTextFormFiled(
                   controller: lastNameController,
-                  type: TextInputType.numberWithOptions(),
+                  type: TextInputType.number,
                   prefix: Icons.phone_outlined,
                   radius: 20,
                   borderColor: defaultColor,

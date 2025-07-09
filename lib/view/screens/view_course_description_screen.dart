@@ -9,8 +9,11 @@ class ViewCourseDescriptionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        titleSpacing: 1,
-        title: DefaultIconButton(onPressed: (){}, icon: Icon(Icons.arrow_back), color: defaultColor,size: 30,),
+        toolbarHeight: 65,
+        titleSpacing: 0,
+        backgroundColor: defaultColor,
+        title:DefaultText(text: 'Description', color:Colors.white, size:25),
+        leading: DefaultIconButton(onPressed: (){}, icon: Icon(Icons.arrow_back), color: Colors.white,size: 30,),
       ),
       body: SingleChildScrollView(
         child: Padding(
