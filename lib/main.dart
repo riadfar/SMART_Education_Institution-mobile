@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:smart_education_institution_mobile/view/screens/courses_screen.dart';
-import 'package:smart_education_institution_mobile/view/screens/login_screen.dart';
-import 'package:smart_education_institution_mobile/view/screens/profile_screen.dart';
-import 'package:smart_education_institution_mobile/view/screens/register_screen.dart';
-import 'package:smart_education_institution_mobile/view/screens/view_course_description_screen.dart';
+import 'package:smart_education_institution_mobile/view/screens/auth_screens/fill_student_data_screen.dart';
+import 'package:smart_education_institution_mobile/view/screens/auth_screens/register_screen.dart';
+import 'package:smart_education_institution_mobile/view/screens/profile_screen/edit_profile_screen.dart';
+
 
 
 void main() {
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ProfileScreen(),
+      home: EditProfileScreen(),
     );
   }
 }

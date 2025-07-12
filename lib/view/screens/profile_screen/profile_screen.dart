@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_radio_group/flutter_radio_group.dart';
 import 'package:smart_education_institution_mobile/components/components.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
-
-var lastNameController = TextEditingController();
-var firstNameController = TextEditingController();
+import '../../../utils/controller.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -56,7 +53,7 @@ class ProfileScreen extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20, top: 80),
+            padding: const EdgeInsets.only(left: 15, right: 15, top: 70),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../components/components.dart';
-import '../../../utils/constants.dart';
+import '../../../../components/components.dart';
+import '../../../../utils/constants.dart';
+import '../../../utils/controller.dart';
 
-var firstNameController = TextEditingController();
-var lastNameController = TextEditingController();
-var emailController = TextEditingController();
-var passwordController = TextEditingController();
 var formKey = GlobalKey<FormState>();
 
 class RegisterScreen extends StatelessWidget {
@@ -17,7 +14,7 @@ class RegisterScreen extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
+            padding: const EdgeInsets.only(right: 15, left: 15, bottom: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

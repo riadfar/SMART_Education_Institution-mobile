@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_holo_date_picker/date_picker.dart';
-import 'package:flutter_holo_date_picker/i18n/date_picker_i18n.dart';
 import 'package:flutter_radio_group/flutter_radio_group.dart';
-import 'package:intl/intl.dart';
+import '../../../../components/components.dart';
+import '../../../../utils/constants.dart';
+import '../../../utils/controller.dart';
 
-import '../../../components/components.dart';
-import '../../../utils/constants.dart';
-
-var lastNameController = TextEditingController();
-var firstNameController = TextEditingController();
 var formKey = GlobalKey<FormState>();
 var radiokey = GlobalKey<FlutterRadioGroupState>();
-DateTime datePicked = DateTime.now();
-var selectDate = 'Birthday';
 
 class FillStudentDataScreen extends StatelessWidget {
   const FillStudentDataScreen({super.key});
@@ -23,7 +16,7 @@ class FillStudentDataScreen extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
+            padding: const EdgeInsets.only(right: 15, left: 15, bottom: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -119,41 +112,7 @@ class FillStudentDataScreen extends StatelessWidget {
                     },
                   ),
                 ),
-                InkWell(
-                  onTap: () async {
-                    datePicked = (await DatePicker.showSimpleDatePicker(
-                      context,
-                      lastDate: DateTime.now(),
-                      initialDate: DateTime.now(),
-                      //lastDate: DateTime.now(),
-                      dateFormat: "dd-MMM-yyyy",
-                      locale: DateTimePickerLocale.en_us,
-                      looping: false,
-                      textColor: defaultColor,
-                    ))!;
-                    selectDate = DateFormat('dd/MMM/yyyy').format(datePicked);
-                    print(selectDate);
-                  },
-                  child: Container(
-                    padding: EdgeInsets.only(left: 15),
-                    height: 55,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.fromBorderSide(
-                        BorderSide(color: defaultColor),
-                      ),
-                    ),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: DefaultText(
-                        text: selectDate.toString(),
-                        color: secondaryColor,
-                        size: 16,
-                      ),
-                    ),
-                  ),
-                ),
+                DatePicked(),
                 SizedBox(height: 40),
                 DefaultButton(
                   text: 'done',

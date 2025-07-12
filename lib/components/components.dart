@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_holo_date_picker/date_picker.dart';
+import 'package:flutter_holo_date_picker/i18n/date_picker_i18n.dart';
+import 'package:intl/intl.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
 
 class CustomTextFormFiled extends StatefulWidget {
@@ -16,8 +19,7 @@ class CustomTextFormFiled extends StatefulWidget {
   final bool isPassword;
   final bool readOnly;
   final bool border;
-  final  hintText;
-
+  final hintText;
 
   const CustomTextFormFiled({
     super.key,
@@ -33,8 +35,8 @@ class CustomTextFormFiled extends StatefulWidget {
     this.isPassword = false,
     this.borderColor,
     this.iconColor,
-    this.readOnly=false,
-    this.border=true,
+    this.readOnly = false,
+    this.border = true,
     this.hintText,
   });
 
@@ -84,14 +86,22 @@ class _CustomTextFormFiledState extends State<CustomTextFormFiled> {
         prefixIcon: Icon(widget.prefix),
         labelText: widget.label,
         prefixIconColor: widget.iconColor,
-        enabledBorder:widget.border? OutlineInputBorder(
-          borderSide: BorderSide(color: widget.borderColor),
-          borderRadius: BorderRadius.all(Radius.circular(widget.radius)),
-        ):UnderlineInputBorder(borderSide: BorderSide(color: widget.borderColor),),
-        focusedBorder:widget.border? OutlineInputBorder(
-          borderSide: BorderSide(color: widget.borderColor),
-          borderRadius: BorderRadius.all(Radius.circular(widget.radius)),
-        ):UnderlineInputBorder(borderSide: BorderSide(color: widget.borderColor),),
+        enabledBorder: widget.border
+            ? OutlineInputBorder(
+                borderSide: BorderSide(color: widget.borderColor),
+                borderRadius: BorderRadius.all(Radius.circular(widget.radius)),
+              )
+            : UnderlineInputBorder(
+                borderSide: BorderSide(color: widget.borderColor),
+              ),
+        focusedBorder: widget.border
+            ? OutlineInputBorder(
+                borderSide: BorderSide(color: widget.borderColor),
+                borderRadius: BorderRadius.all(Radius.circular(widget.radius)),
+              )
+            : UnderlineInputBorder(
+                borderSide: BorderSide(color: widget.borderColor),
+              ),
       ),
     );
   }
@@ -196,10 +206,7 @@ class DefaultTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
-      style: ButtonStyle(
-        padding: WidgetStatePropertyAll(EdgeInsets.all(0)),
-
-      ),
+      style: ButtonStyle(padding: WidgetStatePropertyAll(EdgeInsets.all(0))),
       child: Text(
         text,
 
@@ -253,28 +260,90 @@ class LogoComponent extends StatelessWidget {
   }
 }
 
-class DefaultIconButton extends StatelessWidget {
+class DefaultIconButton extends StatefulWidget {
   final Function onPressed;
   final Icon icon;
   final double size;
-  final  Color color;
+  final Color color;
 
   const DefaultIconButton({
     super.key,
     required this.onPressed,
     required this.icon,
-    this.size=35,
+    this.size = 35,
     required this.color,
   });
 
   @override
+  State<DefaultIconButton> createState() => _DefaultIconButtonState();
+}
+
+class _DefaultIconButtonState extends State<DefaultIconButton> {
+  @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: onPressed(),
-      icon: icon,
+      onPressed: () {
+        setState(() {
+          widget.onPressed();
+        });
+      },
+      icon: widget.icon,
       style: ButtonStyle(
-        iconSize: WidgetStatePropertyAll(size),
-        iconColor: WidgetStatePropertyAll(color),
+        iconSize: WidgetStatePropertyAll(widget.size),
+        iconColor: WidgetStatePropertyAll(widget.color),
+      ),
+    );
+  }
+}
+
+
+class DatePicked extends StatefulWidget {
+
+
+  const DatePicked({super.key});
+
+  @override
+  State<DatePicked> createState() => _DatePickedState();
+}
+
+class _DatePickedState extends State<DatePicked> {
+  DateTime datePicked = DateTime.now();
+
+  var selectDate = 'Birthday';
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () async {
+        datePicked = (await DatePicker.showSimpleDatePicker(
+          context,
+          lastDate: DateTime.now(),
+          initialDate: DateTime.now(),
+          //lastDate: DateTime.now(),
+          dateFormat: "dd-MMM-yyyy",
+          locale: DateTimePickerLocale.en_us,
+          looping: false,
+          textColor: defaultColor,
+        ))!;
+        selectDate = DateFormat('dd/MMM/yyyy').format(datePicked);
+        print(selectDate);
+      },
+      child: Container(
+        padding: EdgeInsets.only(left: 15),
+        height: 55,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          border: Border.fromBorderSide(BorderSide(color: defaultColor)),
+        ),
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: DefaultText(
+            text: selectDate.toString(),
+            color: secondaryColor,
+            size: 16,
+          ),
+        ),
       ),
     );
   }

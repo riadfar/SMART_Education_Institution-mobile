@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:smart_education_institution_mobile/components/components.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
 
-var emailController = TextEditingController();
-var passwordController = TextEditingController();
+import '../../../utils/controller.dart';
+
+
 var formKey = GlobalKey<FormState>();
 
 class LoginScreen extends StatelessWidget {
@@ -15,7 +16,7 @@ class LoginScreen extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-          padding: const EdgeInsets.only(right: 20, left: 20,),
+          padding: const EdgeInsets.only(right: 15, left: 15,),
 
       child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

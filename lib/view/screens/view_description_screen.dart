@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
 import '../../../components/components.dart';
 
-class ViewCourseDescriptionScreen extends StatelessWidget {
-  const ViewCourseDescriptionScreen({super.key});
+class ViewDescriptionScreen extends StatelessWidget {
+  const ViewDescriptionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

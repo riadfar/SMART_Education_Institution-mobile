@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../components/components.dart';
-import '../../../utils/constants.dart';
+import '../../../../components/components.dart';
+import '../../../../utils/constants.dart';
+import '../../../utils/controller.dart';
 import 'forgotten_password_screen.dart';
 
-var emailController = TextEditingController();
 var formKey = GlobalKey<FormState>();
 
 class RequestCodeScreen extends StatelessWidget {
@@ -14,7 +14,7 @@ class RequestCodeScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(15),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,

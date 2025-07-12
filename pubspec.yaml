@@ -45,6 +45,7 @@ dependencies:
   flutter_radio_group:
   flutter_holo_date_picker:
   intl:
+  image_picker:
 
 
 

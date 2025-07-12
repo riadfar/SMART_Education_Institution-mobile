@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../components/components.dart';
-import '../../../utils/constants.dart';
+import '../../../../components/components.dart';
+import '../../../../utils/constants.dart';
+import '../../../utils/controller.dart';
 
-TextEditingController passwordController =  TextEditingController();
-TextEditingController confirmPasswordController =  TextEditingController();
 var formKey = GlobalKey<FormState>();
 class ForgottenPasswordScreen extends StatelessWidget {
   const ForgottenPasswordScreen({super.key});
@@ -13,7 +12,7 @@ class ForgottenPasswordScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(15),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
