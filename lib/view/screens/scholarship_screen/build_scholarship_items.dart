@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_education_institution_mobile/components/components.dart';
+import 'package:smart_education_institution_mobile/utils/constants.dart';
 
-import '../../../components/components.dart';
-import '../../../utils/constants.dart';
-
-Widget buildCourseItems() {
+Widget buildScholarshipItems() {
   return Container(
     height: 500,
     decoration: BoxDecoration(
@@ -34,11 +32,11 @@ Widget buildCourseItems() {
           fontWeight: FontWeight.bold,
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             SizedBox(
-              width: 315,
+              width: 310,
               child: DefaultText(
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
@@ -72,52 +70,5 @@ Widget buildCourseItems() {
         ),
       ],
     ),
-  );
-}
-
-Widget buildMyCourseItems() {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      Container(
-        height: 80,
-        width: 80,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(100)),
-          image: DecorationImage(
-            image: AssetImage('assets/images/1.jpg'),
-          ),
-        ),
-        child: Stack(
-          alignment: AlignmentGeometry.directional(0.9, 0.9),
-          children: [
-            Container(
-              height: 20,
-              width: 20,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.green,
-                border: BoxBorder.fromBorderSide(
-                  BorderSide(width: 2, color: Colors.white),
-                ),
-              ),
-              child: Icon(Icons.check, color: Colors.white, size: 15),
-            ),
-          ],
-        ),
-      ),
-      SizedBox(height: 5),
-      SizedBox(
-        width: 70,
-        child: DefaultText(
-          text: 'Therefore, it kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk',
-          overflow: TextOverflow.ellipsis,
-          maxLines: 2,
-          color: Colors.black,
-          size: 10,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ],
   );
 }

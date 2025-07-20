@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:smart_education_institution_mobile/components/components.dart';
-import 'package:smart_education_institution_mobile/utils/constants.dart';
-import 'build_courses_items.dart';
+import '../../../components/components.dart';
+import '../../../utils/constants.dart';
+import 'build_carousel.dart';
+import 'build_news_items.dart';
 
-class CoursesScreen extends StatelessWidget {
-  const CoursesScreen({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class CoursesScreen extends StatelessWidget {
         titleSpacing: 12,
         toolbarHeight: 65,
         backgroundColor: defaultColor,
-        title:DefaultText(text: 'Courses', color:Colors.white, size:25),
+        title: DefaultText(text: 'Home', color: Colors.white, size: 25),
         actions: [
           DefaultIconButton(
             onPressed: () {},
@@ -22,7 +23,7 @@ class CoursesScreen extends StatelessWidget {
           ),
           DefaultIconButton(
             onPressed: () {},
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.settings_outlined),
             color: Colors.white,
           ),
         ],
@@ -33,26 +34,9 @@ class CoursesScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            buildCarouselSlider(),
             DefaultText(
-              text: 'My Courses',
-              color: defaultColor,
-              size: 25,
-              fontWeight: FontWeight.bold,
-            ),
-            SizedBox(height: 5),
-            SizedBox(
-              height: 125,
-              child: ListView.separated(
-                padding: EdgeInsets.all(0),
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => buildMyCourseItems(),
-                itemCount: 5,
-                separatorBuilder: (BuildContext context, int index) =>
-                    SizedBox(width: 10),
-              ),
-            ),
-            DefaultText(
-              text: 'Courses',
+              text: 'News',
               color: defaultColor,
               size: 25,
               fontWeight: FontWeight.bold,
@@ -60,7 +44,7 @@ class CoursesScreen extends StatelessWidget {
             ListView.separated(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) => buildCourseItems(context),
+              itemBuilder: (context, index) => buildNewsItems(),
               separatorBuilder: (BuildContext context, int index) =>
                   SizedBox(height: 5, width: double.infinity),
               itemCount: 5,

@@ -19,7 +19,7 @@ class CustomTextFormFiled extends StatefulWidget {
   final bool isPassword;
   final bool readOnly;
   final bool border;
-  final hintText;
+  final String? hintText;
 
   const CustomTextFormFiled({
     super.key,

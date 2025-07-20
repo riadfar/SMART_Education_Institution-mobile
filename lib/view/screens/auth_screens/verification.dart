@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
+
 import '../../../../components/components.dart';
 
 class VerificationScreen extends StatelessWidget {
@@ -9,11 +10,11 @@ class VerificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(15),
         child: Column(
-          children:
-          [
+          children: [
             Center(
               child: SizedBox(
                 height: 200,
@@ -40,25 +41,25 @@ class VerificationScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 35),
-          PinCodeTextField(
-          appContext: context,
-          length: 4,
-          onChanged: (value) {
-            print(value);
-          },
-          keyboardType: TextInputType.number,
-            autoFocus: true,
-            cursorColor: defaultColor,
-          pinTheme: PinTheme(
-            inactiveColor: defaultColor,
-            selectedColor: defaultColor,
-            shape: PinCodeFieldShape.box,
-            borderRadius: BorderRadius.circular(5),
-            fieldHeight: 50,
-            fieldWidth: 40,
-            activeFillColor: defaultColor,
-          ),
-        )
+            PinCodeTextField(
+              appContext: context,
+              length: 4,
+              onChanged: (value) {
+                print(value);
+              },
+              keyboardType: TextInputType.number,
+              autoFocus: true,
+              cursorColor: defaultColor,
+              pinTheme: PinTheme(
+                inactiveColor: defaultColor,
+                selectedColor: defaultColor,
+                shape: PinCodeFieldShape.box,
+                borderRadius: BorderRadius.circular(5),
+                fieldHeight: 50,
+                fieldWidth: 40,
+                activeFillColor: defaultColor,
+              ),
+            ),
           ],
         ),
       ),

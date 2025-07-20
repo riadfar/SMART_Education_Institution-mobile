@@ -46,6 +46,8 @@ dependencies:
   flutter_holo_date_picker:
   intl:
   image_picker:
+  carousel_slider:
+  google_nav_bar:
 
 
 

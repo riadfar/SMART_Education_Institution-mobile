@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../components/components.dart';
 import '../../../utils/constants.dart';
-import 'edit_profile_screen.dart';
 
 
 XFile? image;

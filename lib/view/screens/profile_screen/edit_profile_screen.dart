@@ -24,6 +24,7 @@ class EditProfileScreen extends StatelessWidget {
                   floating: false,
                   pinned: true,
                   titleSpacing: 0,
+                  toolbarHeight: 65,
                   leading: DefaultIconButton(
                     onPressed: () {},
                     icon: Icon(Icons.arrow_back),
