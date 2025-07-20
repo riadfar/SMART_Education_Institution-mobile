@@ -11,6 +11,16 @@ class EndPoints {
   static final String showProfile = "/students/studentProfile/me";
   static final String updateProfile = "/students/studentProfile/me";
 
+
+  ///Courses
+  static final String indexCourses = '/courses';
+  static String showCourse(int courseId) => '/courses/$courseId';
+
+  ///Levels
+  static String indexLevels(int courseId) => '/courses/$courseId/levels';
+  static String showLevel(int levelId) => 'levels/$levelId';
+
+
   ///Subject
   static final String indexSubjects = '/students/subject';
 
