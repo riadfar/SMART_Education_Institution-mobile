@@ -15,6 +15,8 @@ class EndPoints {
   ///Courses
   static final String indexCourses = '/courses';
   static String showCourse(int courseId) => '/courses/$courseId';
+  static final String indexScholarships = '/scholarships';
+  static String showScholarship(int scholarshipId) => '/scholarships/$scholarshipId';
 
   ///Levels
   static String indexLevels(int courseId) => '/courses/$courseId/levels';

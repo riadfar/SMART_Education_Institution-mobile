@@ -1,20 +1,23 @@
+import 'package:smart_education_institution_mobile/utils/headers.dart';
+
 import '../../utils/dio_methods.dart';
 import '../../utils/end_points.dart';
-import '../../utils/headers.dart';
 
-class CourseApi {
-  Future<Map<String, dynamic>> getAllCourses({String? url}) async {
-    final endpoint = url ?? EndPoints.indexCourses;
+class ScholarshipApi {
+  Future<Map<String, dynamic>> getAllScholarships({String? url}) async {
+    final endpoint = url ?? EndPoints.indexScholarships;
     print("Calling API: $endpoint");
     final response = await RemoteApi.get(endpoint, headers: headers);
     print("API Response: ${response.data}");
     return response.data as Map<String, dynamic>;
   }
 
-  Future<Map<String, dynamic>> getCourse({required int courseId}) async {
-    print("Calling API: ${EndPoints.showCourse(courseId)}");
+  Future<Map<String, dynamic>> getScholarship({
+    required int scholarshipId,
+  }) async {
+    print("Calling API: ${EndPoints.showScholarship(scholarshipId)}");
     final response = await RemoteApi.get(
-      EndPoints.showCourse(courseId),
+      EndPoints.showScholarship(scholarshipId),
       headers: headers,
     );
     print("API Response: ${response.data}");
