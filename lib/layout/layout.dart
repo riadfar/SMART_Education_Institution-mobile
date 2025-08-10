@@ -6,8 +6,6 @@ import 'package:smart_education_institution_mobile/view/screens/home_screen/home
 import 'package:smart_education_institution_mobile/view/screens/profile_screen/profile_screen.dart';
 import 'package:smart_education_institution_mobile/view/screens/scholarship_screen/scholarship_screen.dart';
 
-import '../components/components.dart';
-
 List<Widget> _screens = [
   HomeScreen(),
   CoursesScreen(),
@@ -16,9 +14,14 @@ List<Widget> _screens = [
 ];
 int currentIndex = 0;
 
-class Layout extends StatelessWidget {
+class Layout extends StatefulWidget {
   const Layout({super.key});
 
+  @override
+  State<Layout> createState() => _LayoutState();
+}
+
+class _LayoutState extends State<Layout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +40,9 @@ class Layout extends StatelessWidget {
             ],
             selectedIndex: currentIndex,
             onTabChange: (i) {
-              currentIndex = i;
+              setState(() {
+                currentIndex = i;
+              });
             },
             backgroundColor: defaultColor,
             color: Colors.grey.shade300,

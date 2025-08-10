@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_education_institution_mobile/view/screens/auth_screens/verification.dart';
 import '../../../../components/components.dart';
 import '../../../../utils/constants.dart';
 import '../../../utils/controller.dart';
@@ -41,7 +42,6 @@ class ForgottenPasswordScreen extends StatelessWidget {
                 type: TextInputType.visiblePassword,
                 prefix: Icons.lock_outlined,
                 isPassword: true,
-                radius: 20,
                 borderColor: defaultColor,
                 iconColor: secondaryColor,
                 validate: (String? value) {
@@ -64,7 +64,6 @@ class ForgottenPasswordScreen extends StatelessWidget {
                 type: TextInputType.visiblePassword,
                 prefix: Icons.lock_outlined,
                 isPassword: true,
-                radius: 20,
                 borderColor: defaultColor,
                 iconColor: secondaryColor,
                 validate: (String? value) {
@@ -76,10 +75,11 @@ class ForgottenPasswordScreen extends StatelessWidget {
               SizedBox(height: 15),
               DefaultButton(
                 text: 'done',
-                onPress: () {},
+                onPress: () {
+                  navigateTo(context, VerificationScreen());
+                },
                 width: double.infinity,
                 background: defaultColor,
-                radius: 20,
               ),
             ],
           ),

@@ -25,12 +25,7 @@ class EditProfileScreen extends StatelessWidget {
                   pinned: true,
                   titleSpacing: 0,
                   toolbarHeight: 65,
-                  leading: DefaultIconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.arrow_back),
-                    color: Colors.white,
-                    size: 30,
-                  ),
+                  iconTheme: IconThemeData(color: Colors.white,size: 30),
                   title: DefaultText(
                     text: 'Edit Profile',
                     color: Colors.white,
@@ -117,7 +112,6 @@ class EditProfileScreen extends StatelessWidget {
                     controller: firstNameController,
                     type: TextInputType.name,
                     prefix: Icons.person_2_outlined,
-                    radius: 20,
                     borderColor: defaultColor,
                     iconColor: secondaryColor,
                     validate: (String? value) {
@@ -139,7 +133,6 @@ class EditProfileScreen extends StatelessWidget {
                     controller: lastNameController,
                     type: TextInputType.name,
                     prefix: Icons.person_2_outlined,
-                    radius: 20,
                     borderColor: defaultColor,
                     iconColor: secondaryColor,
                     validate: (String? value) {
@@ -158,10 +151,9 @@ class EditProfileScreen extends StatelessWidget {
                     ),
                   ),
                   CustomTextFormFiled(
-                    controller: lastNameController,
+                    controller: phoneController,
                     type: TextInputType.number,
                     prefix: Icons.phone_outlined,
-                    radius: 20,
                     borderColor: defaultColor,
                     iconColor: secondaryColor,
                     validate: (String? value) {

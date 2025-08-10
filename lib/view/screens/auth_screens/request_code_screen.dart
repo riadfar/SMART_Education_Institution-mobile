@@ -42,7 +42,6 @@ class RequestCodeScreen extends StatelessWidget {
                 controller: emailController,
                 type: TextInputType.emailAddress,
                 prefix: Icons.email_outlined,
-                radius: 20,
                 borderColor: defaultColor,
                 iconColor: secondaryColor,
                 validate: (String? value) {
@@ -55,15 +54,10 @@ class RequestCodeScreen extends StatelessWidget {
               DefaultButton(
                 text: 'next',
                 onPress: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ForgottenPasswordScreen(),
-                    ),
-                  );
+                  navigateTo(context, ForgottenPasswordScreen());
                 },
                 width: double.infinity,
                 background: defaultColor,
-                radius: 20,
               ),
             ],
           ),

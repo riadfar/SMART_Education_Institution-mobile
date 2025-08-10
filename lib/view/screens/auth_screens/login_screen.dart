@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:smart_education_institution_mobile/components/components.dart';
+import 'package:smart_education_institution_mobile/layout/layout.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
+import 'package:smart_education_institution_mobile/view/screens/auth_screens/register_screen.dart';
+import 'package:smart_education_institution_mobile/view/screens/auth_screens/request_code_screen.dart';
+import 'package:smart_education_institution_mobile/view/screens/auth_screens/verification.dart';
 
 import '../../../utils/controller.dart';
+import 'forgotten_password_screen.dart';
 
 
 var formKey = GlobalKey<FormState>();
@@ -47,7 +52,6 @@ class LoginScreen extends StatelessWidget {
                   controller: emailController,
                   type: TextInputType.emailAddress,
                   prefix: Icons.email_outlined,
-                  radius: 20,
                   borderColor: defaultColor,
                   iconColor: secondaryColor,
                   validate: (String? value) {
@@ -70,7 +74,6 @@ class LoginScreen extends StatelessWidget {
                   type: TextInputType.visiblePassword,
                   prefix: Icons.lock_outlined,
                   isPassword: true,
-                  radius: 20,
                   borderColor: defaultColor,
                   iconColor: secondaryColor,
                   validate: (String? value) {
@@ -85,16 +88,19 @@ class LoginScreen extends StatelessWidget {
                     text: 'Forgot password?',
                     color: secondaryColor,
                     size: 15,
-                    onPressed: () {},
+                    onPressed: () {
+                      navigateTo(context, RequestCodeScreen());
+                    },
                   ),
                 ),
                 SizedBox(height: 10),
                 DefaultButton(
                   text: 'login',
-                  onPress: () {},
+                  onPress: () {
+                    navigateAndFinish(context, Layout());
+                  },
                   width: double.infinity,
                   background: defaultColor,
-                  radius: 20,
                 ),
                 SizedBox(height: 30),
                 Container(
@@ -118,7 +124,9 @@ class LoginScreen extends StatelessWidget {
                         text: 'sign up'.toUpperCase(),
                         color: secondaryColor,
                         size: 13,
-                        onPressed: () {},
+                        onPressed: () {
+                          navigateAndFinish(context, RegisterScreen());
+                        },
                       ),
                     ],
                   ),

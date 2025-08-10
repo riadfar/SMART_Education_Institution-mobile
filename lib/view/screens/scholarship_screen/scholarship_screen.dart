@@ -36,7 +36,7 @@ class ScholarshipScreen extends StatelessWidget {
             ListView.separated(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) => buildScholarshipItems(),
+              itemBuilder: (context, index) => buildScholarshipItems(context),
               separatorBuilder: (BuildContext context, int index) =>
                   SizedBox(height: 5, width: double.infinity),
               itemCount: 5,

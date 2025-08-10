@@ -1,78 +1,64 @@
 import 'package:flutter/material.dart';
-import 'package:smart_education_institution_mobile/view/screens/courses_screen/register_course.dart';
+import 'package:smart_education_institution_mobile/view/screens/levels_screen/view_levels_screen.dart';
 
 import '../../../components/components.dart';
-import '../../../utils/constants.dart';
 
 Widget buildCourseItems(BuildContext context) {
-  return Container(
-    height: 500,
-    decoration: BoxDecoration(
-      color: Colors.black54.withValues(alpha: .08),
-      borderRadius: BorderRadius.circular(15),
-    ),
-    width: double.infinity,
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
-          height: 350,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(15)),
-            image: DecorationImage(
-              fit: BoxFit.fill,
-              image: AssetImage("assets/images/1.jpg") ,
+  return InkWell(
+    onTap: (){
+      navigateTo(context, ViewLevelsScreen());
+    },
+    borderRadius: BorderRadius.circular(15),
+    child: Container(
+      height: 450,
+      decoration: BoxDecoration(
+        color: Colors.black54.withValues(alpha: .08),
+        borderRadius: BorderRadius.circular(15),
+      ),
+      width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            height: 350,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(15)),
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage("assets/images/1.jpg"),
+              ),
             ),
           ),
-        ),
-        SizedBox(height: 10),
-        DefaultText(
-          text: 'Therefore, it is important to dedicate ',
-          color: Colors.black,
-          size: 20,
-          fontWeight: FontWeight.bold,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            SizedBox(
-              width: 310,
-              child: DefaultText(
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                text:
-                'Therefore, it is important to dedicate time for reading in our daily lives, whether through nTherefore, it is important to dedicate time for reading in our daily lives, whether through nTherefore, it is important to dedicate time for reading in our daily lives, whether through n',
-                color: Colors.black54,
-                size: 14,
-              ),
+          SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.only(left: 8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children:
+              [
+                DefaultText(
+                  text: 'Therefore, it is important to dedicate ',
+                  color: Colors.black,
+                  size: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+                SizedBox(
+                  width: 370,
+                  child: DefaultText(
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    text:
+                    'Therefore, it is important to dedicate time for reading in our daily lives, whether through nTherefore, it is important to dedicate time for reading in our daily lives, whether through nTherefore, it is important to dedicate time for reading in our daily lives, whether through n',
+                    color: Colors.black54,
+                    size: 14,
+                  ),
+                ),
+              ],
             ),
-            SizedBox(
-              height: 20,
-              child: DefaultTextButton(
-                text: 'Show More',
-                color: defaultColor,
-                size: 10,
-                onPressed: () {},
-                textDecoration: TextDecoration.underline,
-              ),
-            ),
-          ],
-        ),
-        SizedBox(height: 10),
-        DefaultButton(
-          background: defaultColor,
-          text: 'join now',
-          onPress: () {
-            showBottomSheetRegisterCourse(context);
-          },
-          width: 300,
-          height: 40,
-          fontSize: 20,
-          radius: 20,
-        ),
-      ],
+          ),
+        ],
+      ),
     ),
   );
 }
@@ -86,9 +72,7 @@ Widget buildMyCourseItems() {
         width: 80,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(100)),
-          image: DecorationImage(
-            image: AssetImage('assets/images/1.jpg'),
-          ),
+          image: DecorationImage(image: AssetImage('assets/images/1.jpg')),
         ),
         child: Stack(
           alignment: AlignmentGeometry.directional(0.9, 0.9),

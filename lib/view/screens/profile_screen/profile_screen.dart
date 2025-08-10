@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_education_institution_mobile/components/components.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
+import 'package:smart_education_institution_mobile/view/screens/edit_profile_screen/edit_profile_screen.dart';
 import '../../../utils/controller.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -16,7 +17,9 @@ class ProfileScreen extends StatelessWidget {
         title: DefaultText(text: 'Profile', color: Colors.white, size: 25),
         actions: [
           DefaultIconButton(
-            onPressed: () {},
+            onPressed: () {
+              navigateTo(context, EditProfileScreen());
+            },
             icon: Icon(Icons.mode_edit_sharp),
             color: Colors.white,
           ),
@@ -71,7 +74,6 @@ class ProfileScreen extends StatelessWidget {
                   controller: firstNameController,
                   type: TextInputType.name,
                   prefix: Icons.person_2_outlined,
-                  radius: 20,
                   borderColor: defaultColor,
                   iconColor: secondaryColor,
                 ),
@@ -90,7 +92,6 @@ class ProfileScreen extends StatelessWidget {
                   controller: lastNameController,
                   type: TextInputType.name,
                   prefix: Icons.person_2_outlined,
-                  radius: 20,
                   borderColor: defaultColor,
                   iconColor: secondaryColor,
                 ),
@@ -106,10 +107,9 @@ class ProfileScreen extends StatelessWidget {
                 CustomTextFormFiled(
                   readOnly: true,
                   hintText: '0955254544',
-                  controller: lastNameController,
+                  controller: phoneController,
                   type: TextInputType.number,
                   prefix: Icons.phone_outlined,
-                  radius: 20,
                   borderColor: defaultColor,
                   iconColor: secondaryColor,
                 ),

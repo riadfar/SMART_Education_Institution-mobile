@@ -14,6 +14,7 @@ class Scholarship {
   final String country;
   final String specialization;
 
+
   Scholarship({
     required this.id,
     required this.name,
