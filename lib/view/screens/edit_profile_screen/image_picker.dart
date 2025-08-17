@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:smart_education_institution_mobile/app_localization.dart';
-import '../../../components/components.dart';
-import '../../../utils/constants.dart';
+import 'package:smart_education_institution_mobile/shared/localization/app_localization.dart';
+import 'package:smart_education_institution_mobile/shared/components/components.dart';
+import 'package:smart_education_institution_mobile/utils/constants.dart';
 
 
 XFile? image;
@@ -11,8 +11,9 @@ Future<void> imagePicker(ImageSource source) async {
   final pickerFile = await picker.pickImage(source: source);
   image = pickerFile;
 }
-void showBottomSheetImage(BuildContext context) {
+Future<void> showBottomSheetImage(BuildContext context) async {
   showModalBottomSheet(
+    backgroundColor:Theme.of(context).bottomSheetTheme.backgroundColor,
     showDragHandle: true,
     context: context,
     builder: (BuildContext context) => SizedBox(
@@ -22,9 +23,7 @@ void showBottomSheetImage(BuildContext context) {
         children: [
           DefaultText(
             text: 'Profile_Picture'.tr(context),
-            color: defaultColor,
-            size: 30,
-            fontWeight: FontWeight.bold,
+            style:Theme.of(context).textTheme.titleMedium,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

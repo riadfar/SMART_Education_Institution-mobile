@@ -32,9 +32,9 @@ Widget buildCourseItems(BuildContext context) {
           ),
           SizedBox(height: 10),
           Padding(
-            padding: const EdgeInsets.only(left: 8),
+            padding: const EdgeInsets.only(left: 4,right: 4),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children:
               [
                 DefaultText(

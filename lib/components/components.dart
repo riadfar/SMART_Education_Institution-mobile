@@ -3,6 +3,7 @@ import 'package:flutter_holo_date_picker/date_picker.dart';
 import 'package:flutter_holo_date_picker/i18n/date_picker_i18n.dart';
 import 'package:flutter_radio_group/flutter_radio_group.dart';
 import 'package:intl/intl.dart';
+import 'package:smart_education_institution_mobile/shared/localization/app_localization.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
 
 class CustomTextFormFiled extends StatefulWidget {
@@ -306,14 +307,14 @@ class DatePicked extends StatefulWidget {
 
 class _DatePickedState extends State<DatePicked> {
   DateTime datePicked = DateTime.now();
-
-  var selectDate = 'Birthday';
+  var selectDate ;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       radius: 15,
       onTap: () async {
+
         datePicked = (await DatePicker.showSimpleDatePicker(
           context,
           lastDate: DateTime.now(),
@@ -322,26 +323,26 @@ class _DatePickedState extends State<DatePicked> {
           dateFormat: "dd-MMM-yyyy",
           locale: DateTimePickerLocale.en_us,
           looping: false,
+          titleText: 'Select_Date'.tr(context),
+          cancelText: 'Cancel'.tr(context),
+          confirmText: 'Ok'.tr(context),
           textColor: defaultColor,
         ))!;
         selectDate = DateFormat('dd/MMM/yyyy').format(datePicked);
         print(selectDate);
+        setState(() {});
       },
       child: Container(
-        padding: EdgeInsets.only(left: 15),
-        height: 55,
+        padding: EdgeInsets.all(15),
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           border: Border.fromBorderSide(BorderSide(color: defaultColor)),
         ),
-        child: Align(
-          alignment: Alignment.centerLeft,
-          child: DefaultText(
-            text: selectDate.toString(),
-            color: secondaryColor,
-            size: 16,
-          ),
+        child: DefaultText(
+          text: selectDate ==null?'birthday'.tr(context):selectDate.toString(),
+          color: secondaryColor,
+          size: 16,
         ),
       ),
     );

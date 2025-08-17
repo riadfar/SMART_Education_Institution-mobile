@@ -2,7 +2,7 @@
   "sign in":"sign in",
   "email":"Email",
   "password":"Password",
-  "forgot_password":"Forgot Password ?",
+  "forgot_password":"Forgot Password",
   "login":"login",
   "don't_have_an_account":"Don't have an account ?",
   "sign up":"Create new account",
@@ -45,8 +45,5 @@
   "Edit_Profile": "Edit Profile",
   "Profile_Picture": "Profile Picture",
   "Home": "Home",
-  "News": "News",
-  "Settings": "Settings",
-  "language": "Language"
-
+  "News": "News"
 }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:smart_education_institution_mobile/components/components.dart';
+import 'package:smart_education_institution_mobile/shared/components/components.dart';
 import 'package:smart_education_institution_mobile/view/screens/description_level_screen/description_level_screen.dart';
 
 Widget buildItemsLevels(BuildContext context) {
   return Container(
     decoration: BoxDecoration(
-      color: Colors.black54.withValues(alpha: .04),
+      color: Theme.of(context).cardColor,
       borderRadius: BorderRadius.circular(10),
     ),
     child: DefaultListTile(

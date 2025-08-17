@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_radio_group/flutter_radio_group.dart';
-import 'package:smart_education_institution_mobile/app_localization.dart';
-
-import '../../../../components/components.dart';
-import '../../../../utils/constants.dart';
-import '../../../utils/controller.dart';
+import 'package:smart_education_institution_mobile/shared/components/components.dart';
+import 'package:smart_education_institution_mobile/shared/localization/app_localization.dart';
+import 'package:smart_education_institution_mobile/utils/constants.dart';
+import 'package:smart_education_institution_mobile/utils/controller.dart';
 
 var formKey = GlobalKey<FormState>();
 var radiokey = GlobalKey<FlutterRadioGroupState>();
@@ -15,6 +14,11 @@ class FillStudentDataScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: Theme.of(context).iconTheme,
+        backgroundColor:  Theme.of(context).appBarTheme.backgroundColor,
+        surfaceTintColor:  Theme.of(context).appBarTheme.surfaceTintColor,
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -27,9 +31,7 @@ class FillStudentDataScreen extends StatelessWidget {
                 Center(
                   child: DefaultText(
                     text: 'student_information'.tr(context),
-                    color: defaultColor,
-                    size: 25,
-                    fontWeight: FontWeight.bold,
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                 ),
                 SizedBox(height: 25),
@@ -37,8 +39,7 @@ class FillStudentDataScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: DefaultText(
                     text: 'first_name'.tr(context),
-                    color: defaultColor,
-                    size: 16,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
                 CustomTextFormFiled(
@@ -55,11 +56,10 @@ class FillStudentDataScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 15),
                 Padding(
-                  padding: const EdgeInsets.all( 8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: DefaultText(
                     text: 'last_name'.tr(context),
-                    color: defaultColor,
-                    size: 16,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
                 CustomTextFormFiled(
@@ -76,11 +76,10 @@ class FillStudentDataScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 15),
                 Padding(
-                  padding: const EdgeInsets.all( 8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: DefaultText(
                     text: 'phone'.tr(context),
-                    color: defaultColor,
-                    size: 16,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
                 CustomTextFormFiled(
@@ -100,12 +99,12 @@ class FillStudentDataScreen extends StatelessWidget {
                   radiokey: radiokey,
                   titles: genders(context),
                   label: 'gender'.tr(context),
-                  titleStyle: defaultColor,
-                  onChanged: (value){
+                  titleStyle: Theme.of(context).textTheme.bodyLarge,
+                  labelStyle: Theme.of(context).textTheme.bodyLarge,
+                  onChanged: (value) {
                     print(genders(context).elementAtOrNull(value!));
                   },
                   orientation: RGOrientation.HORIZONTAL,
-                  fontWeight: FontWeight.normal,
                 ),
                 DatePicked(),
                 SizedBox(height: 40),

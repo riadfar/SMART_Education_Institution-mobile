@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:smart_education_institution_mobile/components/components.dart';
 import 'package:smart_education_institution_mobile/shared/localization/app_localization.dart';
-import 'package:smart_education_institution_mobile/shared/components/components.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
 import 'package:smart_education_institution_mobile/view/screens/description_scholarship_screen/build_bottom_sheet_register_scholarship.dart';
 
@@ -11,14 +11,11 @@ class DescriptionScholarshipScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: defaultColor,
         titleSpacing: 0,
         toolbarHeight: 65,
-        title: DefaultText(
-          text: 'Description'.tr(context),
-          style: Theme.of(context).textTheme.headlineLarge,
-        ),
-        iconTheme: IconThemeData(color: Colors.white, size: 30),
+        backgroundColor: defaultColor,
+        title: DefaultText(text: 'Description'.tr(context), color: Colors.white, size: 25),
+        iconTheme: IconThemeData(color: Colors.white,size: 30),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -45,12 +42,15 @@ class DescriptionScholarshipScreen extends StatelessWidget {
                   children: [
                     DefaultText(
                       text: 'Therefore, it is important to dedicate ',
-                      style:Theme.of(context).textTheme.displayLarge,
+                      color: Colors.black,
+                      size: 20,
+                      fontWeight: FontWeight.bold,
                     ),
                     DefaultText(
                       text:
                           'Therefore, it is important to dedicate time for reading in our daily lives, whether through nTherefore, it is important to dedicate time for reading in our daily lives, whether through nTherefore, it is important to dedicate time for reading in our daily lives, whether through n',
-                      style:Theme.of(context).textTheme.displaySmall,
+                      color: Colors.grey.shade500,
+                      size: 16,
                     ),
                   ],
                 ),
@@ -61,7 +61,7 @@ class DescriptionScholarshipScreen extends StatelessWidget {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: Theme.of(context).cardColor,
+                  color: Colors.black54.withValues(alpha: .04),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -143,3 +143,4 @@ class DescriptionScholarshipScreen extends StatelessWidget {
     );
   }
 }
+

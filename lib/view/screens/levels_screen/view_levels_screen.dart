@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:smart_education_institution_mobile/components/components.dart';
 import 'package:smart_education_institution_mobile/shared/localization/app_localization.dart';
-import 'package:smart_education_institution_mobile/shared/components/components.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
 import 'package:smart_education_institution_mobile/view/screens/levels_screen/build_items_levels.dart';
+
 
 class ViewLevelsScreen extends StatelessWidget {
   const ViewLevelsScreen({super.key});
@@ -14,11 +15,8 @@ class ViewLevelsScreen extends StatelessWidget {
         toolbarHeight: 65,
         titleSpacing: 0,
         backgroundColor: defaultColor,
-        title: DefaultText(
-          text: 'Levels'.tr(context),
-          style: Theme.of(context).textTheme.headlineLarge,
-        ),
-        iconTheme: IconThemeData(color: Colors.white, size: 30),
+        title: DefaultText(text: 'Levels'.tr(context), color: Colors.white, size: 25),
+        iconTheme: IconThemeData(color: Colors.white,size: 30),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -40,27 +38,30 @@ class ViewLevelsScreen extends StatelessWidget {
               SizedBox(height: 10),
               DefaultText(
                 text: 'Therefore, it is important to dedicate ',
-                style: Theme.of(context).textTheme.displayLarge,
+                color: Colors.black,
+                size: 20,
+                fontWeight: FontWeight.bold,
               ),
               DefaultText(
                 text:
                     'Reading is considered one of the most important activities a person can engage in',
-                style: Theme.of(context).textTheme.displaySmall,
+                color: Colors.black54,
+                size: 14,
               ),
               SizedBox(height: 10),
-              DefaultText(
-                text: 'Certificate'.tr(context),
-                style: Theme.of(context).textTheme.displayLarge,
-              ),
+              DefaultText(text: 'Certificate'.tr(context), color: defaultColor, size: 16),
               SizedBox(height: 5),
               DefaultText(
                 text: 'Professional Mobile Developer Certificate',
-                style: Theme.of(context).textTheme.displaySmall,
+                color: Colors.black54,
+                size: 14,
               ),
               SizedBox(height: 10),
               DefaultText(
                 text: 'Levels'.tr(context),
-                style: Theme.of(context).textTheme.titleMedium,
+                color: defaultColor,
+                size: 25,
+                fontWeight: FontWeight.bold,
               ),
               ListView.separated(
                 shrinkWrap: true,

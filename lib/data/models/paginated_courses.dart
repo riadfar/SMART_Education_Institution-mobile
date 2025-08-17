@@ -1,7 +1,6 @@
 import 'course.dart';
 import 'paginated_response.dart';
 
-import 'course.dart';
 
 class PaginatedCourses extends PaginatedResponse<Course> {
   PaginatedCourses({

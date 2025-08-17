@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:smart_education_institution_mobile/app_localization.dart';
+import 'package:smart_education_institution_mobile/shared/localization/app_localization.dart';
+import 'package:smart_education_institution_mobile/shared/components/components.dart';
+import 'package:smart_education_institution_mobile/utils/constants.dart';
+import 'package:smart_education_institution_mobile/utils/controller.dart';
 import 'package:smart_education_institution_mobile/view/screens/auth_screens/login_screen.dart';
 import 'package:smart_education_institution_mobile/view/screens/auth_screens/verification.dart';
-import '../../../../components/components.dart';
-import '../../../../utils/constants.dart';
-import '../../../utils/controller.dart';
 
 var formKey = GlobalKey<FormState>();
 
@@ -28,9 +28,7 @@ class RegisterScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 15),
                     child: DefaultText(
                       text: 'sign up'.tr(context).toUpperCase(),
-                      color: defaultColor,
-                      size: 30,
-                      fontWeight: FontWeight.bold,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ),
                 ),
@@ -39,8 +37,7 @@ class RegisterScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: DefaultText(
                     text: 'email'.tr(context),
-                    color: defaultColor,
-                    size: 16,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
                 CustomTextFormFiled(
@@ -60,8 +57,7 @@ class RegisterScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: DefaultText(
                     text: 'password'.tr(context),
-                    color: defaultColor,
-                    size: 16,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
                 CustomTextFormFiled(
@@ -82,8 +78,7 @@ class RegisterScreen extends StatelessWidget {
                   padding: const EdgeInsets.all( 8.0),
                   child: DefaultText(
                     text: 'confirm_password'.tr(context),
-                    color: defaultColor,
-                    size: 16,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
                 CustomTextFormFiled(
@@ -123,8 +118,7 @@ class RegisterScreen extends StatelessWidget {
                     children: [
                       DefaultText(
                         text: "Do_you_have_an_account?".tr(context),
-                        color: defaultColor,
-                        size: 13,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       DefaultTextButton(
                         text: 'sign in'.tr(context).toUpperCase(),

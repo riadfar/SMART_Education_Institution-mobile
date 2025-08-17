@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:smart_education_institution_mobile/app_localization.dart';
+import 'package:smart_education_institution_mobile/shared/localization/app_localization.dart';
+import 'package:smart_education_institution_mobile/shared/components/components.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
 
-import '../../../../components/components.dart';
 
 class VerificationScreen extends StatelessWidget {
   const VerificationScreen({super.key});
@@ -11,7 +11,11 @@ class VerificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        iconTheme: Theme.of(context).appBarTheme.iconTheme,
+        backgroundColor:  Theme.of(context).appBarTheme.backgroundColor,
+        surfaceTintColor:  Theme.of(context).appBarTheme.surfaceTintColor,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(15),
         child: Column(
@@ -20,16 +24,13 @@ class VerificationScreen extends StatelessWidget {
             Center(
               child: DefaultText(
                 text: 'enter_code'.tr(context),
-                color: defaultColor,
-                size: 25,
-                fontWeight: FontWeight.bold,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
             ),
             Center(
               child: DefaultText(
                 text: "sent_code".tr(context),
-                color: defaultColor,
-                size: 14,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
             SizedBox(height: 35),

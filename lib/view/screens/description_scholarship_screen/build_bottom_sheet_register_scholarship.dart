@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_radio_group/flutter_radio_group.dart';
-import 'package:smart_education_institution_mobile/components/components.dart';
+import 'package:smart_education_institution_mobile/shared/components/components.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
 import 'package:smart_education_institution_mobile/utils/controller.dart';
 
@@ -12,6 +12,7 @@ void showBottomSheetRegisterCourse(BuildContext context) {
   showModalBottomSheet(
     isScrollControlled: true,
     useSafeArea: true,
+    backgroundColor:Theme.of(context).bottomSheetTheme.backgroundColor,
     sheetAnimationStyle: AnimationStyle(
       duration: Duration(seconds: 2),
       curve: FlippedCurve(Curves.decelerate),
@@ -28,17 +29,16 @@ void showBottomSheetRegisterCourse(BuildContext context) {
             children: [
               DefaultText(
                 text: 'Consultation Session Request From(Free).',
-                color: defaultColor,
-                fontWeight: FontWeight.bold,
-                size: 16,
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
-              SizedBox(height: 15,),
+              SizedBox(height: 15),
               DefContainer(
                 child: DefFlutterRadioGroup(
                   radiokey: radiokeyAcademicStage,
                   titles: academicStage,
                   label: 'Academic stage',
-                  titleStyle: Colors.black,
+                  titleStyle: Theme.of(context).textTheme.labelMedium,
+                  labelStyle: Theme.of(context).textTheme.titleSmall,
                   onChanged: (value) {
                     print(academicStage.elementAtOrNull(value!));
                   },
@@ -50,8 +50,7 @@ void showBottomSheetRegisterCourse(BuildContext context) {
                 padding: const EdgeInsets.only(left: 8.0, bottom: 5),
                 child: DefaultText(
                   text: 'Name of school/institute/university',
-                  color: defaultColor,
-                  size: 16,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
               CustomTextFormFiled(
@@ -71,8 +70,7 @@ void showBottomSheetRegisterCourse(BuildContext context) {
                 padding: const EdgeInsets.only(left: 8.0, bottom: 5),
                 child: DefaultText(
                   text: 'Field and specialization of study',
-                  color: defaultColor,
-                  size: 16,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
               CustomTextFormFiled(
@@ -92,8 +90,7 @@ void showBottomSheetRegisterCourse(BuildContext context) {
                 padding: const EdgeInsets.only(left: 8.0, bottom: 5),
                 child: DefaultText(
                   text: 'Academic year',
-                  color: defaultColor,
-                  size: 16,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
               CustomTextFormFiled(
@@ -113,8 +110,7 @@ void showBottomSheetRegisterCourse(BuildContext context) {
                 padding: const EdgeInsets.only(left: 8.0, bottom: 5),
                 child: DefaultText(
                   text: 'Average if the certificate is obtained',
-                  color: defaultColor,
-                  size: 16,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
               CustomTextFormFiled(
@@ -136,7 +132,8 @@ void showBottomSheetRegisterCourse(BuildContext context) {
                   titles: test,
                   label:
                       'Have you taken a placement test or english language courses within last three month ?',
-                  titleStyle: Colors.black,
+                  titleStyle: Theme.of(context).textTheme.labelMedium,
+                  labelStyle: Theme.of(context).textTheme.titleSmall,
                   onChanged: (value) {
                     print(test.elementAtOrNull(value!));
                   },
@@ -149,7 +146,8 @@ void showBottomSheetRegisterCourse(BuildContext context) {
                   radiokey: radiokeyLanguageLevel,
                   titles: level,
                   label: 'Language level',
-                  titleStyle: Colors.black,
+                  titleStyle: Theme.of(context).textTheme.labelMedium,
+                  labelStyle: Theme.of(context).textTheme.titleSmall,
                   onChanged: (value) {
                     print(level.elementAtOrNull(value!));
                   },
