@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:smart_education_institution_mobile/components/components.dart';
+import 'package:smart_education_institution_mobile/shared/localization/app_localization.dart';
+import 'package:smart_education_institution_mobile/shared/components/components.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
+import 'package:smart_education_institution_mobile/view/screens/description_level_screen/build_bottomshet_register_level.dart';
 
-import 'build_bottomshet_register_level.dart';
 
 class DescriptionLevelScreen extends StatelessWidget {
   const DescriptionLevelScreen({super.key});
@@ -11,10 +12,10 @@ class DescriptionLevelScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: defaultColor,
         titleSpacing: 0,
         toolbarHeight: 65,
-        backgroundColor: defaultColor,
-        title: DefaultText(text: 'Description', color: Colors.white, size: 25),
+        title: DefaultText(text: 'Description'.tr(context), style: Theme.of(context).textTheme.headlineLarge,),
         iconTheme: IconThemeData(color: Colors.white,size: 30),
       ),
       body: SingleChildScrollView(
@@ -25,14 +26,11 @@ class DescriptionLevelScreen extends StatelessWidget {
             children: [
               DefaultText(
                 text: 'Flutter Fundamentals',
-                color: Colors.black,
-                size: 24,
-                fontWeight: FontWeight.bold,
+                style: Theme.of(context).textTheme.displayLarge,
               ),
               DefaultText(
                 text: 'Dart syntax, widget tree basics, and simple UI creation',
-                color: Colors.grey.shade500,
-                size: 16,
+                style: Theme.of(context).textTheme.displaySmall,
               ),
               SizedBox(height: 40),
               Container(
@@ -40,32 +38,38 @@ class DescriptionLevelScreen extends StatelessWidget {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: Colors.black54.withValues(alpha: .04),
+                  color: Theme.of(context).cardColor,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     DefaultListTile(
-                      textTitle: 'Start Date',
+                      textTitle: 'Start_Date'.tr(context),
                       textSubTitle: '2023-09-10',
                       leading: Icon(Icons.date_range_outlined),
                     ),
                     SizedBox(height: 15),
                     DefaultListTile(
-                      textTitle: 'Time',
-                      textSubTitle: 'Mon/Wed/ 18:00-20:00',
+                      textTitle: 'Time'.tr(context),
+                      textSubTitle: '18:00-20:00',
                       leading: Icon(Icons.access_time_outlined),
                     ),
                     SizedBox(height: 15),
                     DefaultListTile(
-                      textTitle: 'Seats Number',
+                      textTitle: 'Days'.tr(context),
+                      textSubTitle: 'Mon/Wed',
+                      leading: Icon(Icons.next_week_outlined),
+                    ),
+                    SizedBox(height: 15),
+                    DefaultListTile(
+                      textTitle: 'Seats_Number'.tr(context),
                       textSubTitle: '30',
                       leading: Icon(Icons.event_seat_outlined),
                     ),
                     SizedBox(height: 15),
                     DefaultListTile(
-                      textTitle: 'Status',
+                      textTitle: 'Status'.tr(context),
                       textSubTitle: 'Enrolling',
                       leading: Icon(
                         Icons.cancel_outlined,
@@ -79,7 +83,7 @@ class DescriptionLevelScreen extends StatelessWidget {
               SizedBox(height: 40),
               DefaultButton(
                 background: defaultColor,
-                text: 'Join Now',
+                text: 'Join_Now'.tr(context),
                 onPress: () {
                   showBottomSheetRegisterCourse(context);
                 },

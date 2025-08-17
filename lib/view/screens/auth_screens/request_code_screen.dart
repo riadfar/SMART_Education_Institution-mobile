@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_education_institution_mobile/app_localization.dart';
 import '../../../../components/components.dart';
 import '../../../../utils/constants.dart';
 import '../../../utils/controller.dart';
@@ -23,17 +24,17 @@ class RequestCodeScreen extends StatelessWidget {
               LogoComponent(),
               Center(
                 child: DefaultText(
-                  text: 'Forgot Your Password ? ',
+                  text: 'forgot_password'.tr(context),
                   color: defaultColor,
-                  size: 20,
+                  size: 25,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(height: 35),
               Padding(
-                padding: const EdgeInsets.only(left: 8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: DefaultText(
-                  text: 'Email',
+                  text: 'email'.tr(context),
                   color: defaultColor,
                   size: 16,
                 ),
@@ -46,13 +47,13 @@ class RequestCodeScreen extends StatelessWidget {
                 iconColor: secondaryColor,
                 validate: (String? value) {
                   if (value!.isEmpty) {
-                    return "Sorry ! , Email can't be empty, Enter your email ";
+                    return "error_email".tr(context);
                   } else {}
                 },
               ),
               SizedBox(height: 15),
               DefaultButton(
-                text: 'next',
+                text: 'next'.tr(context).toUpperCase(),
                 onPress: () {
                   navigateTo(context, ForgottenPasswordScreen());
                 },

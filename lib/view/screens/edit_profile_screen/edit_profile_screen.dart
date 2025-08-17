@@ -1,9 +1,10 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:smart_education_institution_mobile/components/components.dart';
-import '../../../utils/constants.dart';
-import '../../../utils/controller.dart';
-import 'image_picker.dart';
+import 'package:smart_education_institution_mobile/shared/localization/app_localization.dart';
+import 'package:smart_education_institution_mobile/shared/components/components.dart';
+import 'package:smart_education_institution_mobile/utils/constants.dart';
+import 'package:smart_education_institution_mobile/utils/controller.dart';
+import 'package:smart_education_institution_mobile/view/screens/edit_profile_screen/image_picker.dart';
 
 var formKey = GlobalKey<FormState>();
 
@@ -22,16 +23,15 @@ class EditProfileScreen extends StatelessWidget {
               slivers: [
                 SliverAppBar(
                   floating: false,
+                  backgroundColor: defaultColor,
                   pinned: true,
                   titleSpacing: 0,
                   toolbarHeight: 65,
-                  iconTheme: IconThemeData(color: Colors.white,size: 30),
+                  iconTheme: IconThemeData(color: Colors.white, size: 30),
                   title: DefaultText(
-                    text: 'Edit Profile',
-                    color: Colors.white,
-                    size: 25,
+                    text: 'Edit_Profile'.tr(context),
+                    style: Theme.of(context).textTheme.headlineLarge,
                   ),
-                  backgroundColor: defaultColor,
                   actions: [
                     DefaultIconButton(
                       onPressed: () {},
@@ -65,7 +65,9 @@ class EditProfileScreen extends StatelessWidget {
                     border: Border.all(width: 3, color: secondaryColor),
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image:image==null?AssetImage('assets/images/1.jpg'): FileImage(File(image!.path)),
+                      image: image == null
+                          ? AssetImage('assets/images/1.jpg')
+                          : FileImage(File(image!.path)),
                     ),
                   ),
                 ),
@@ -101,11 +103,10 @@ class EditProfileScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: DefaultText(
-                      text: 'First Name',
-                      color: defaultColor,
-                      size: 16,
+                      text: 'first_name'.tr(context),
+                      style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ),
                   CustomTextFormFiled(
@@ -116,17 +117,16 @@ class EditProfileScreen extends StatelessWidget {
                     iconColor: secondaryColor,
                     validate: (String? value) {
                       if (value!.isEmpty) {
-                        return "Sorry ! , First Name can't be empty, Enter your First Name ";
+                        return "error_first_name".tr(context);
                       } else {}
                     },
                   ),
                   SizedBox(height: 15),
                   Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: DefaultText(
-                      text: 'Last Name',
-                      color: defaultColor,
-                      size: 16,
+                      text: 'last_name'.tr(context),
+                      style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ),
                   CustomTextFormFiled(
@@ -137,17 +137,16 @@ class EditProfileScreen extends StatelessWidget {
                     iconColor: secondaryColor,
                     validate: (String? value) {
                       if (value!.isEmpty) {
-                        return "Sorry ! , Last Name can't be empty, Enter your Last Name ";
+                        return "error_last_name".tr(context);
                       } else {}
                     },
                   ),
                   SizedBox(height: 15),
                   Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: DefaultText(
-                      text: 'Phone',
-                      color: defaultColor,
-                      size: 16,
+                      text: 'phone'.tr(context),
+                      style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ),
                   CustomTextFormFiled(
@@ -158,7 +157,7 @@ class EditProfileScreen extends StatelessWidget {
                     iconColor: secondaryColor,
                     validate: (String? value) {
                       if (value!.isEmpty) {
-                        return "Sorry ! , Phone can't be empty, Enter your Phone ";
+                        return "error_phone".tr(context);
                       } else {}
                     },
                   ),
@@ -166,12 +165,11 @@ class EditProfileScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
                     child: DefaultText(
-                      text: 'Birthday',
-                      color: defaultColor,
-                      size: 16,
+                      text: 'birthday'.tr(context),
+                      style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ),
-                 DatePicked(),
+                  DatePicked(),
                 ],
               ),
             ),

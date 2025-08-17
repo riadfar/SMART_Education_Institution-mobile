@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_radio_group/flutter_radio_group.dart';
+import 'package:smart_education_institution_mobile/app_localization.dart';
 
 import '../../../../components/components.dart';
 import '../../../../utils/constants.dart';
@@ -25,7 +26,7 @@ class FillStudentDataScreen extends StatelessWidget {
                 LogoComponent(),
                 Center(
                   child: DefaultText(
-                    text: 'student information'.toUpperCase(),
+                    text: 'student_information'.tr(context),
                     color: defaultColor,
                     size: 25,
                     fontWeight: FontWeight.bold,
@@ -33,9 +34,9 @@ class FillStudentDataScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 25),
                 Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: DefaultText(
-                    text: 'First Name',
+                    text: 'first_name'.tr(context),
                     color: defaultColor,
                     size: 16,
                   ),
@@ -48,15 +49,15 @@ class FillStudentDataScreen extends StatelessWidget {
                   iconColor: secondaryColor,
                   validate: (String? value) {
                     if (value!.isEmpty) {
-                      return "Sorry ! , First Name can't be empty, Enter your First Name ";
+                      return "error_first_name ".tr(context);
                     } else {}
                   },
                 ),
                 SizedBox(height: 15),
                 Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
+                  padding: const EdgeInsets.all( 8.0),
                   child: DefaultText(
-                    text: 'Last Name',
+                    text: 'last_name'.tr(context),
                     color: defaultColor,
                     size: 16,
                   ),
@@ -69,15 +70,15 @@ class FillStudentDataScreen extends StatelessWidget {
                   iconColor: secondaryColor,
                   validate: (String? value) {
                     if (value!.isEmpty) {
-                      return "Sorry ! , Last Name can't be empty, Enter your Last Name ";
+                      return "error_last_name".tr(context);
                     } else {}
                   },
                 ),
                 SizedBox(height: 15),
                 Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
+                  padding: const EdgeInsets.all( 8.0),
                   child: DefaultText(
-                    text: 'Phone',
+                    text: 'phone'.tr(context),
                     color: defaultColor,
                     size: 16,
                   ),
@@ -90,18 +91,18 @@ class FillStudentDataScreen extends StatelessWidget {
                   iconColor: secondaryColor,
                   validate: (String? value) {
                     if (value!.isEmpty) {
-                      return "Sorry ! , Phone can't be empty, Enter your Phone ";
+                      return "error_phone".tr(context);
                     } else {}
                   },
                 ),
                 SizedBox(height: 15),
                 DefFlutterRadioGroup(
                   radiokey: radiokey,
-                  titles: genders,
-                  label: 'Genders',
+                  titles: genders(context),
+                  label: 'gender'.tr(context),
                   titleStyle: defaultColor,
                   onChanged: (value){
-                    print(genders.elementAtOrNull(value!));
+                    print(genders(context).elementAtOrNull(value!));
                   },
                   orientation: RGOrientation.HORIZONTAL,
                   fontWeight: FontWeight.normal,
@@ -109,7 +110,7 @@ class FillStudentDataScreen extends StatelessWidget {
                 DatePicked(),
                 SizedBox(height: 40),
                 DefaultButton(
-                  text: 'done',
+                  text: 'done'.tr(context),
                   onPress: () {},
                   width: double.infinity,
                   background: defaultColor,

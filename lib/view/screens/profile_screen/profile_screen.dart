@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:smart_education_institution_mobile/components/components.dart';
+import 'package:smart_education_institution_mobile/shared/localization/app_localization.dart';
+import 'package:smart_education_institution_mobile/shared/components/components.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
+import 'package:smart_education_institution_mobile/utils/controller.dart';
 import 'package:smart_education_institution_mobile/view/screens/edit_profile_screen/edit_profile_screen.dart';
-import '../../../utils/controller.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -11,10 +12,13 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: defaultColor,
         titleSpacing: 12,
         toolbarHeight: 65,
-        backgroundColor: defaultColor,
-        title: DefaultText(text: 'Profile', color: Colors.white, size: 25),
+        title: DefaultText(
+          text: 'Profile'.tr(context),
+          style: Theme.of(context).textTheme.headlineLarge,
+        ),
         actions: [
           DefaultIconButton(
             onPressed: () {
@@ -26,104 +30,101 @@ class ProfileScreen extends StatelessWidget {
         ],
         actionsPadding: EdgeInsets.only(right: 10),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
-            alignment: Alignment(0, 6),
-            children: [
-              Container(
-                width: double.infinity,
-                height: 160,
-                decoration: BoxDecoration(
-                  color: defaultColor,
-                  borderRadius: BorderRadiusGeometry.vertical(
-                    bottom: Radius.circular(300),
-                  ),
-                ),
-              ),
-              Container(
-                height: 140,
-                width: 140,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadiusGeometry.circular(100),
-                  border: Border.all(width: 3, color: secondaryColor),
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/1.jpg'),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15, right: 15, top: 70),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              alignment: Alignment(0, 6),
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: DefaultText(
-                    text: 'First Name',
+                Container(
+                  width: double.infinity,
+                  height: 160,
+                  decoration: BoxDecoration(
                     color: defaultColor,
-                    size: 16,
-                  ),
-                ),
-                CustomTextFormFiled(
-                  readOnly: true,
-                  hintText: 'First Name',
-                  controller: firstNameController,
-                  type: TextInputType.name,
-                  prefix: Icons.person_2_outlined,
-                  borderColor: defaultColor,
-                  iconColor: secondaryColor,
-                ),
-                SizedBox(height: 15),
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: DefaultText(
-                    text: 'Last Name',
-                    color: defaultColor,
-                    size: 16,
-                  ),
-                ),
-                CustomTextFormFiled(
-                  readOnly: true,
-                  hintText: 'Last Name',
-                  controller: lastNameController,
-                  type: TextInputType.name,
-                  prefix: Icons.person_2_outlined,
-                  borderColor: defaultColor,
-                  iconColor: secondaryColor,
-                ),
-                SizedBox(height: 15),
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: DefaultText(
-                    text: 'Phone',
-                    color: defaultColor,
-                    size: 16,
-                  ),
-                ),
-                CustomTextFormFiled(
-                  readOnly: true,
-                  hintText: '0955254544',
-                  controller: phoneController,
-                  type: TextInputType.number,
-                  prefix: Icons.phone_outlined,
-                  borderColor: defaultColor,
-                  iconColor: secondaryColor,
-                ),
-                SizedBox(height: 15),
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: DefaultText(
-                    text: 'Birthday',
-                    color: defaultColor,
-                    size: 16,
+                    borderRadius: BorderRadiusGeometry.vertical(
+                      bottom: Radius.circular(300),
+                    ),
                   ),
                 ),
                 Container(
-                    padding: EdgeInsets.only(left: 15),
+                  height: 140,
+                  width: 140,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadiusGeometry.circular(100),
+                    border: Border.all(width: 3, color: secondaryColor),
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/1.jpg'),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 15, top: 50),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: DefaultText(
+                      text: 'first_name'.tr(context),
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                  ),
+                  CustomTextFormFiled(
+                    readOnly: true,
+                    hintText: 'first name',
+                    controller: firstNameController,
+                    type: TextInputType.name,
+                    prefix: Icons.person_2_outlined,
+                    borderColor: defaultColor,
+                    iconColor: secondaryColor,
+                  ),
+                  SizedBox(height: 15),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: DefaultText(
+                      text: 'last_name'.tr(context),
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                  ),
+                  CustomTextFormFiled(
+                    readOnly: true,
+                    hintText: 'last name',
+                    controller: lastNameController,
+                    type: TextInputType.name,
+                    prefix: Icons.person_2_outlined,
+                    borderColor: defaultColor,
+                    iconColor: secondaryColor,
+                  ),
+                  SizedBox(height: 15),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: DefaultText(
+                      text: 'phone'.tr(context),
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                  ),
+                  CustomTextFormFiled(
+                    readOnly: true,
+                    hintText: '0955254544',
+                    controller: phoneController,
+                    type: TextInputType.number,
+                    prefix: Icons.phone_outlined,
+                    borderColor: defaultColor,
+                    iconColor: secondaryColor,
+                  ),
+                  SizedBox(height: 15),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: DefaultText(
+                      text: 'birthday'.tr(context),
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(15),
                     height: 55,
                     width: double.infinity,
                     decoration: BoxDecoration(
@@ -132,19 +133,16 @@ class ProfileScreen extends StatelessWidget {
                         BorderSide(color: defaultColor),
                       ),
                     ),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: DefaultText(
-                        text: 'Birthday',
-                        color: secondaryColor,
-                        size: 16,
-                      ),
+                    child: DefaultText(
+                      text: 'birthday'.tr(context),
+                      style: Theme.of(context).textTheme.headlineSmall,
                     ),
                   ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

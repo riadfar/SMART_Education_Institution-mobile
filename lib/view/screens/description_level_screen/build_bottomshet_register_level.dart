@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_radio_group/flutter_radio_group.dart';
-import 'package:smart_education_institution_mobile/components/components.dart';
+import 'package:smart_education_institution_mobile/shared/components/components.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
 
 var radiokeyAcademicStage = GlobalKey<FlutterRadioGroupState>();
@@ -15,6 +15,7 @@ void showBottomSheetRegisterCourse(BuildContext context) {
   showModalBottomSheet(
     isScrollControlled: true,
     useSafeArea: true,
+    backgroundColor:Theme.of(context).bottomSheetTheme.backgroundColor,
     sheetAnimationStyle: AnimationStyle(
       duration: Duration(seconds: 2),
       curve: FlippedCurve(Curves.decelerate),
@@ -34,7 +35,8 @@ void showBottomSheetRegisterCourse(BuildContext context) {
                   radiokey: radiokeyAcademicStage,
                   titles: academicStage,
                   label: 'Academic stage',
-                  titleStyle: Colors.black,
+                  titleStyle: Theme.of(context).textTheme.labelMedium,
+                  labelStyle: Theme.of(context).textTheme.titleSmall,
                   onChanged: (value) {
                     print(academicStage.elementAtOrNull(value!));
                   },
@@ -47,7 +49,8 @@ void showBottomSheetRegisterCourse(BuildContext context) {
                   radiokey: radiokeyLanguageLevel,
                   titles: level,
                   label: 'Language level',
-                  titleStyle: Colors.black,
+                  titleStyle: Theme.of(context).textTheme.labelMedium,
+                  labelStyle: Theme.of(context).textTheme.titleSmall,
                   onChanged: (value) {
                     print(level.elementAtOrNull(value!));
                   },
@@ -60,7 +63,8 @@ void showBottomSheetRegisterCourse(BuildContext context) {
                   radiokey: radiokeyTime,
                   titles: time,
                   label: 'Time',
-                  titleStyle: Colors.black,
+                  titleStyle: Theme.of(context).textTheme.labelMedium,
+                  labelStyle: Theme.of(context).textTheme.titleSmall,
                   onChanged: (value) {
                     print(time.elementAtOrNull(value!));
                   },
@@ -73,7 +77,8 @@ void showBottomSheetRegisterCourse(BuildContext context) {
                   radiokey: radiokeyDays,
                   titles: days,
                   label: 'Days',
-                  titleStyle: Colors.black,
+                  titleStyle: Theme.of(context).textTheme.labelMedium,
+                  labelStyle: Theme.of(context).textTheme.titleSmall,
                   onChanged: (value) {
                     print(days.elementAtOrNull(value!));
                   },
@@ -86,7 +91,8 @@ void showBottomSheetRegisterCourse(BuildContext context) {
                   radiokey: radiokeySession,
                   titles: session,
                   label: 'Language level',
-                  titleStyle: Colors.black,
+                  titleStyle: Theme.of(context).textTheme.labelMedium,
+                  labelStyle: Theme.of(context).textTheme.titleSmall,
                   onChanged: (value) {
                     print(session.elementAtOrNull(value!));
                   },

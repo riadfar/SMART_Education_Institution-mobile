@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../../components/components.dart';
-import '../../../utils/constants.dart';
-import 'build_carousel.dart';
-import 'build_news_items.dart';
+import 'package:smart_education_institution_mobile/shared/localization/app_localization.dart';
+import 'package:smart_education_institution_mobile/shared/components/components.dart';
+import 'package:smart_education_institution_mobile/utils/constants.dart';
+import 'package:smart_education_institution_mobile/view/screens/home_screen/build_carousel.dart';
+import 'package:smart_education_institution_mobile/view/screens/home_screen/build_news_items.dart';
+import 'package:smart_education_institution_mobile/view/screens/settings_screen/settings_screen.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,7 +17,10 @@ class HomeScreen extends StatelessWidget {
         titleSpacing: 12,
         toolbarHeight: 65,
         backgroundColor: defaultColor,
-        title: DefaultText(text: 'Home', color: Colors.white, size: 25),
+        title: DefaultText(
+          text: 'Home'.tr(context),
+          style: Theme.of(context).textTheme.headlineLarge,
+        ),
         actions: [
           DefaultIconButton(
             onPressed: () {},
@@ -22,7 +28,9 @@ class HomeScreen extends StatelessWidget {
             color: Colors.white,
           ),
           DefaultIconButton(
-            onPressed: () {},
+            onPressed: () {
+              navigateTo(context, SettingsScreen());
+            },
             icon: Icon(Icons.settings_outlined),
             color: Colors.white,
           ),
@@ -30,21 +38,22 @@ class HomeScreen extends StatelessWidget {
         actionsPadding: EdgeInsets.only(right: 10),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 12,vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            buildCarouselSlider(),
-            DefaultText(
-              text: 'News',
-              color: defaultColor,
-              size: 25,
-              fontWeight: FontWeight.bold,
+            BuildCarouselSlider(),
+            Padding(
+              padding: const EdgeInsets.only(right: 12, left: 12),
+              child: DefaultText(
+                text: 'News'.tr(context),
+                style:Theme.of(context).textTheme.titleMedium,
+              ),
             ),
             ListView.separated(
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) => buildNewsItems(),
+              itemBuilder: (context, index) => buildNewsItems(context),
               separatorBuilder: (BuildContext context, int index) =>
                   SizedBox(height: 5, width: double.infinity),
               itemCount: 5,

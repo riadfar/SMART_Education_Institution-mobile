@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:smart_education_institution_mobile/app_localization.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
 
 import '../../../../components/components.dart';
@@ -15,19 +16,10 @@ class VerificationScreen extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         child: Column(
           children: [
-            Center(
-              child: SizedBox(
-                height: 200,
-                width: double.infinity,
-                child: Image.asset(
-                  'assets/images/SMART.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+            LogoComponent(),
             Center(
               child: DefaultText(
-                text: 'Enter Code',
+                text: 'enter_code'.tr(context),
                 color: defaultColor,
                 size: 25,
                 fontWeight: FontWeight.bold,
@@ -35,7 +27,7 @@ class VerificationScreen extends StatelessWidget {
             ),
             Center(
               child: DefaultText(
-                text: "We've sent a code to your email. Enter it below.",
+                text: "sent_code".tr(context),
                 color: defaultColor,
                 size: 14,
               ),
