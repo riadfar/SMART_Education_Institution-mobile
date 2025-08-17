@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_education_institution_mobile/app_localization.dart';
 import 'package:smart_education_institution_mobile/view/screens/levels_screen/view_levels_screen.dart';
 
 import '../../../components/components.dart';
@@ -32,9 +33,9 @@ Widget buildCourseItems(BuildContext context) {
           ),
           SizedBox(height: 10),
           Padding(
-            padding: const EdgeInsets.only(left: 8),
+            padding: const EdgeInsets.only(left: 4,right: 4),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children:
               [
                 DefaultText(

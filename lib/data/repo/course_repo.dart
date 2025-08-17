@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import '../api/course_api.dart';
 import '../models/course.dart';

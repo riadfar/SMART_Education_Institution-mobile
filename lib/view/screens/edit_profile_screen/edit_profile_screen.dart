@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:smart_education_institution_mobile/app_localization.dart';
 import 'package:smart_education_institution_mobile/components/components.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/controller.dart';
@@ -27,9 +28,9 @@ class EditProfileScreen extends StatelessWidget {
                   toolbarHeight: 65,
                   iconTheme: IconThemeData(color: Colors.white,size: 30),
                   title: DefaultText(
-                    text: 'Edit Profile',
+                    text: 'Edit_Profile'.tr(context),
                     color: Colors.white,
-                    size: 25,
+                    size: 20,
                   ),
                   backgroundColor: defaultColor,
                   actions: [
@@ -101,9 +102,9 @@ class EditProfileScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
+                    padding: const EdgeInsets.all( 8.0),
                     child: DefaultText(
-                      text: 'First Name',
+                      text: 'first_name'.tr(context),
                       color: defaultColor,
                       size: 16,
                     ),
@@ -116,15 +117,15 @@ class EditProfileScreen extends StatelessWidget {
                     iconColor: secondaryColor,
                     validate: (String? value) {
                       if (value!.isEmpty) {
-                        return "Sorry ! , First Name can't be empty, Enter your First Name ";
+                        return "error_first_name".tr(context);
                       } else {}
                     },
                   ),
                   SizedBox(height: 15),
                   Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
+                    padding: const EdgeInsets.all( 8.0),
                     child: DefaultText(
-                      text: 'Last Name',
+                      text: 'last_name'.tr(context),
                       color: defaultColor,
                       size: 16,
                     ),
@@ -137,15 +138,15 @@ class EditProfileScreen extends StatelessWidget {
                     iconColor: secondaryColor,
                     validate: (String? value) {
                       if (value!.isEmpty) {
-                        return "Sorry ! , Last Name can't be empty, Enter your Last Name ";
+                        return "error_last_name".tr(context);
                       } else {}
                     },
                   ),
                   SizedBox(height: 15),
                   Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
+                    padding: const EdgeInsets.all( 8.0),
                     child: DefaultText(
-                      text: 'Phone',
+                      text: 'phone'.tr(context),
                       color: defaultColor,
                       size: 16,
                     ),
@@ -158,7 +159,7 @@ class EditProfileScreen extends StatelessWidget {
                     iconColor: secondaryColor,
                     validate: (String? value) {
                       if (value!.isEmpty) {
-                        return "Sorry ! , Phone can't be empty, Enter your Phone ";
+                        return "error_phone".tr(context);
                       } else {}
                     },
                   ),
@@ -166,7 +167,7 @@ class EditProfileScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
                     child: DefaultText(
-                      text: 'Birthday',
+                      text: 'birthday'.tr(context),
                       color: defaultColor,
                       size: 16,
                     ),

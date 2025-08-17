@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_education_institution_mobile/app_localization.dart';
 import 'package:smart_education_institution_mobile/components/components.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
 import 'package:smart_education_institution_mobile/view/screens/description_scholarship_screen/build_bottom_sheet_register_scholarship.dart';
@@ -13,7 +14,7 @@ class DescriptionScholarshipScreen extends StatelessWidget {
         titleSpacing: 0,
         toolbarHeight: 65,
         backgroundColor: defaultColor,
-        title: DefaultText(text: 'Description', color: Colors.white, size: 25),
+        title: DefaultText(text: 'Description'.tr(context), color: Colors.white, size: 25),
         iconTheme: IconThemeData(color: Colors.white,size: 30),
       ),
       body: SingleChildScrollView(

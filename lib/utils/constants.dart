@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:smart_education_institution_mobile/app_localization.dart';
 
 final baseURL = "https://zaker-back-dev.misbar.education/api";
 const secureStorage = FlutterSecureStorage();
-final List<String> genders = ['MALE', 'FEMALE'];
+ List<String> genders(BuildContext context) => ['MALE'.tr(context), 'FEMALE'.tr(context)];
 final List<String> academicStage = ['Pre-Secondary', 'Secondary','Institute','University Degree','Master\'s','PHD'];
 final List<String> test = ['Yes', 'No'];
 final List<String> level = ['Beginner', 'Weak-Elemantry','Per-Intermediate','Intermediate','Advanced-Upper-Intermediate','I Can\'t Decide'];

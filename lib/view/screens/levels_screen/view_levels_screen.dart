@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_education_institution_mobile/app_localization.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
 import 'package:smart_education_institution_mobile/view/screens/levels_screen/build_items_levels.dart';
 
@@ -14,7 +15,7 @@ class ViewLevelsScreen extends StatelessWidget {
         toolbarHeight: 65,
         titleSpacing: 0,
         backgroundColor: defaultColor,
-        title: DefaultText(text: 'Levels', color: Colors.white, size: 25),
+        title: DefaultText(text: 'Levels'.tr(context), color: Colors.white, size: 25),
         iconTheme: IconThemeData(color: Colors.white,size: 30),
       ),
       body: SingleChildScrollView(
@@ -48,7 +49,7 @@ class ViewLevelsScreen extends StatelessWidget {
                 size: 14,
               ),
               SizedBox(height: 10),
-              DefaultText(text: 'Certificate', color: defaultColor, size: 16),
+              DefaultText(text: 'Certificate'.tr(context), color: defaultColor, size: 16),
               SizedBox(height: 5),
               DefaultText(
                 text: 'Professional Mobile Developer Certificate',
@@ -57,7 +58,7 @@ class ViewLevelsScreen extends StatelessWidget {
               ),
               SizedBox(height: 10),
               DefaultText(
-                text: 'Levels',
+                text: 'Levels'.tr(context),
                 color: defaultColor,
                 size: 25,
                 fontWeight: FontWeight.bold,

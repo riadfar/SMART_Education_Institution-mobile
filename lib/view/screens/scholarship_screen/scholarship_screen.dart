@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_education_institution_mobile/app_localization.dart';
 import 'package:smart_education_institution_mobile/components/components.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
 import 'package:smart_education_institution_mobile/view/screens/scholarship_screen/build_scholarship_items.dart';
@@ -13,7 +14,7 @@ class ScholarshipScreen extends StatelessWidget {
         titleSpacing: 12,
         toolbarHeight: 65,
         backgroundColor: defaultColor,
-        title: DefaultText(text: 'Scholarship', color: Colors.white, size: 25),
+        title: DefaultText(text: 'Scholarship'.tr(context), color: Colors.white, size: 25),
         actions: [
           DefaultIconButton(
             onPressed: () {},

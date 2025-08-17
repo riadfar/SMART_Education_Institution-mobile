@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:smart_education_institution_mobile/app_localization.dart';
 import '../../../components/components.dart';
 import '../../../utils/constants.dart';
 
@@ -20,7 +21,7 @@ void showBottomSheetImage(BuildContext context) {
       child: Column(
         children: [
           DefaultText(
-            text: 'Profile Picture',
+            text: 'Profile_Picture'.tr(context),
             color: defaultColor,
             size: 30,
             fontWeight: FontWeight.bold,

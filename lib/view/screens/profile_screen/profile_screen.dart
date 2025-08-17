@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_education_institution_mobile/app_localization.dart';
 import 'package:smart_education_institution_mobile/components/components.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
 import 'package:smart_education_institution_mobile/view/screens/edit_profile_screen/edit_profile_screen.dart';
@@ -14,7 +15,7 @@ class ProfileScreen extends StatelessWidget {
         titleSpacing: 12,
         toolbarHeight: 65,
         backgroundColor: defaultColor,
-        title: DefaultText(text: 'Profile', color: Colors.white, size: 25),
+        title: DefaultText(text: 'Profile'.tr(context), color: Colors.white, size: 25),
         actions: [
           DefaultIconButton(
             onPressed: () {
@@ -56,21 +57,21 @@ class ProfileScreen extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 15, right: 15, top: 70),
+            padding: const EdgeInsets.only(left: 15, right: 15, top: 50),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: DefaultText(
-                    text: 'First Name',
+                    text: 'first_name'.tr(context),
                     color: defaultColor,
                     size: 16,
                   ),
                 ),
                 CustomTextFormFiled(
                   readOnly: true,
-                  hintText: 'First Name',
+                  hintText: 'first name',
                   controller: firstNameController,
                   type: TextInputType.name,
                   prefix: Icons.person_2_outlined,
@@ -79,16 +80,16 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 15),
                 Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: DefaultText(
-                    text: 'Last Name',
+                    text: 'last_name'.tr(context),
                     color: defaultColor,
                     size: 16,
                   ),
                 ),
                 CustomTextFormFiled(
                   readOnly: true,
-                  hintText: 'Last Name',
+                  hintText: 'last name',
                   controller: lastNameController,
                   type: TextInputType.name,
                   prefix: Icons.person_2_outlined,
@@ -97,9 +98,9 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 15),
                 Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: DefaultText(
-                    text: 'Phone',
+                    text: 'phone'.tr(context),
                     color: defaultColor,
                     size: 16,
                   ),
@@ -115,15 +116,15 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 15),
                 Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
+                  padding: const EdgeInsets.all( 8.0),
                   child: DefaultText(
-                    text: 'Birthday',
+                    text: 'birthday'.tr(context),
                     color: defaultColor,
                     size: 16,
                   ),
                 ),
                 Container(
-                    padding: EdgeInsets.only(left: 15),
+                    padding: EdgeInsets.all(15),
                     height: 55,
                     width: double.infinity,
                     decoration: BoxDecoration(
@@ -132,13 +133,10 @@ class ProfileScreen extends StatelessWidget {
                         BorderSide(color: defaultColor),
                       ),
                     ),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: DefaultText(
-                        text: 'Birthday',
-                        color: secondaryColor,
-                        size: 16,
-                      ),
+                    child: DefaultText(
+                      text: 'birthday'.tr(context),
+                      color: secondaryColor,
+                      size: 16,
                     ),
                   ),
               ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_education_institution_mobile/app_localization.dart';
 import 'package:smart_education_institution_mobile/components/components.dart';
 import 'package:smart_education_institution_mobile/utils/constants.dart';
 import 'build_courses_items.dart';
@@ -13,7 +14,7 @@ class CoursesScreen extends StatelessWidget {
         titleSpacing: 12,
         toolbarHeight: 65,
         backgroundColor: defaultColor,
-        title:DefaultText(text: 'Courses', color:Colors.white, size:25),
+        title:DefaultText(text: 'Courses'.tr(context), color:Colors.white, size:25),
         actions: [
           DefaultIconButton(
             onPressed: () {},
@@ -34,7 +35,7 @@ class CoursesScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             DefaultText(
-              text: 'My Courses',
+              text: 'my_courses'.tr(context),
               color: defaultColor,
               size: 25,
               fontWeight: FontWeight.bold,
@@ -52,7 +53,7 @@ class CoursesScreen extends StatelessWidget {
               ),
             ),
             DefaultText(
-              text: 'Courses',
+              text: 'Courses'.tr(context),
               color: defaultColor,
               size: 25,
               fontWeight: FontWeight.bold,

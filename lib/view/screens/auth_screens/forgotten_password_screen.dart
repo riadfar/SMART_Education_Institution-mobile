@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_education_institution_mobile/app_localization.dart';
 import 'package:smart_education_institution_mobile/view/screens/auth_screens/verification.dart';
 import '../../../../components/components.dart';
 import '../../../../utils/constants.dart';
@@ -22,7 +23,7 @@ class ForgottenPasswordScreen extends StatelessWidget {
               LogoComponent(),
               Center(
                 child: DefaultText(
-                  text: 'Forgot Your Password ? ',
+                  text: 'forgot_password'.tr(context),
                   color: defaultColor,
                   size: 20,
                   fontWeight: FontWeight.bold,
@@ -32,7 +33,7 @@ class ForgottenPasswordScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: DefaultText(
-                  text: 'Password',
+                  text: 'password'.tr(context),
                   color: defaultColor,
                   size: 16,
                 ),
@@ -46,7 +47,7 @@ class ForgottenPasswordScreen extends StatelessWidget {
                 iconColor: secondaryColor,
                 validate: (String? value) {
                   if (value!.isEmpty) {
-                    return "Sorry ! , Password is too short ";
+                    return "error_password".tr(context);
                   } else {}
                 },
               ),
@@ -54,7 +55,7 @@ class ForgottenPasswordScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: DefaultText(
-                  text: 'Confirm Password',
+                  text: 'confirm_password'.tr(context),
                   color: defaultColor,
                   size: 16,
                 ),
@@ -68,13 +69,13 @@ class ForgottenPasswordScreen extends StatelessWidget {
                 iconColor: secondaryColor,
                 validate: (String? value) {
                   if (value!.isEmpty) {
-                    return "Sorry ! , Password is too short ";
+                    return "error_password".tr(context);
                   } else {}
                 },
               ),
               SizedBox(height: 15),
               DefaultButton(
-                text: 'done',
+                text: 'done'.tr(context),
                 onPress: () {
                   navigateTo(context, VerificationScreen());
                 },

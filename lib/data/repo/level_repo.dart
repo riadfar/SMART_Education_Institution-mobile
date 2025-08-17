@@ -8,8 +8,8 @@ class LevelRepo {
 
   Future<List<Level>> indexLevels({required int courseId}) async {
     final response = await levelApi.indexLevels(courseId: courseId);
-    final List<dynamic> levelsDara = response['levels']??[];
-    List<Level> levels = levelsDara.map((item)=>Level.fromMap(item)).toList();
+    final List<dynamic> levelsDara = response['levels'] ?? [];
+    List<Level> levels = levelsDara.map((item) => Level.fromMap(item)).toList();
     return levels;
   }
 
@@ -18,5 +18,4 @@ class LevelRepo {
     Level level = Level.fromMap(response);
     return level;
   }
-
 }

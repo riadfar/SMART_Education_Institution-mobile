@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_education_institution_mobile/app_localization.dart';
 import '../../../components/components.dart';
 import '../../../utils/constants.dart';
 import 'build_carousel.dart';
@@ -14,7 +15,7 @@ class HomeScreen extends StatelessWidget {
         titleSpacing: 12,
         toolbarHeight: 65,
         backgroundColor: defaultColor,
-        title: DefaultText(text: 'Home', color: Colors.white, size: 25),
+        title: DefaultText(text: 'Home'.tr(context), color: Colors.white, size: 25),
         actions: [
           DefaultIconButton(
             onPressed: () {},
@@ -30,18 +31,21 @@ class HomeScreen extends StatelessWidget {
         actionsPadding: EdgeInsets.only(right: 10),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 12,vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            buildCarouselSlider(),
-            DefaultText(
-              text: 'News',
-              color: defaultColor,
-              size: 25,
-              fontWeight: FontWeight.bold,
+            BuildCarouselSlider(),
+            Padding(
+              padding: const EdgeInsets.only(right: 12,left: 12),
+              child: DefaultText(
+                text: 'News'.tr(context),
+                color: defaultColor,
+                size: 25,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             ListView.separated(
+              padding: EdgeInsets.symmetric(horizontal: 12,vertical: 10),
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) => buildNewsItems(),
