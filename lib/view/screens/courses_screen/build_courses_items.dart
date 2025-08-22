@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smart_education_institution_mobile/shared/components/components.dart';
 import 'package:smart_education_institution_mobile/view/screens/levels_screen/view_levels_screen.dart';
 
+import '../../../components/components.dart';
 
 Widget buildCourseItems(BuildContext context) {
   return InkWell(
@@ -12,7 +12,7 @@ Widget buildCourseItems(BuildContext context) {
     child: Container(
       height: 450,
       decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
+        color: Colors.black54.withValues(alpha: .08),
         borderRadius: BorderRadius.circular(15),
       ),
       width: double.infinity,
@@ -32,14 +32,16 @@ Widget buildCourseItems(BuildContext context) {
           ),
           SizedBox(height: 10),
           Padding(
-            padding: const EdgeInsets.only(left: 4,right: 4),
+            padding: const EdgeInsets.only(left: 8),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children:
               [
                 DefaultText(
                   text: 'Therefore, it is important to dedicate ',
-                 style: Theme.of(context).textTheme.labelLarge,
+                  color: Colors.black,
+                  size: 20,
+                  fontWeight: FontWeight.bold,
                 ),
                 SizedBox(
                   width: 370,
@@ -48,7 +50,8 @@ Widget buildCourseItems(BuildContext context) {
                     overflow: TextOverflow.ellipsis,
                     text:
                     'Therefore, it is important to dedicate time for reading in our daily lives, whether through nTherefore, it is important to dedicate time for reading in our daily lives, whether through nTherefore, it is important to dedicate time for reading in our daily lives, whether through n',
-                    style: Theme.of(context).textTheme.bodyMedium,
+                    color: Colors.black54,
+                    size: 14,
                   ),
                 ),
               ],
@@ -60,7 +63,7 @@ Widget buildCourseItems(BuildContext context) {
   );
 }
 
-Widget buildMyCourseItems(BuildContext context) {
+Widget buildMyCourseItems() {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
@@ -96,7 +99,9 @@ Widget buildMyCourseItems(BuildContext context) {
           text: 'Therefore, it kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk',
           overflow: TextOverflow.ellipsis,
           maxLines: 2,
-          style: Theme.of(context).textTheme.labelSmall,
+          color: Colors.black,
+          size: 10,
+          fontWeight: FontWeight.bold,
         ),
       ),
     ],
